@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container py-5">
+  <h1 class="text-center mb-4">About Goldwing’s Aviation</h1>
+
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <img src="{{ url_for('static', filename='aviation-about.jpg') }}" class="img-fluid rounded shadow" alt="Aviation Campus">
+    </div>
+    <div class="col-md-6">
+      <p>
+        Goldwing’s Aviation was established in 2025. We offer a boutique flight school experience, focused on quality and personalised service.
+        Here, you're not just one of hundreds—you’re part of our community from day one.
+      </p>
+      <p>
+        Our Chief Flight Instructor, Muhammad Khalid, began his flying career in 2015, flying out of Point Cook. 
+        Throughout his journey from RPL to PPL and CPL, flying across Victoria, Khalid discovered the importance of high-quality instruction and meaningful mentoring.
+      </p>
+      <p>
+        Khalid is a senior flight instructor with hundreds of hours of teaching experience. He can guide you from your very first lesson all the way to your PPL flight test. 
+        He’s driven by a genuine passion for helping students succeed and achieve their goals.
+      </p>
+      <p>
+        We currently offer RPL and PPL training in our own Cessna 172, with flexible lesson times to fit around your work, school, or family commitments.
+      </p>
+      <p>
+        If you’ve ever dreamed of flying, contact us today to learn more or book a school tour.
+      </p>
+    </div>
+  </div>
+
+ 
+</section>
+
+<style>
+  .container {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+  .moorabbin-section img:first-child {
+    margin-top: 0;
+  }
+
+  .moorabbin-section img:last-child {
+    margin-top: -10px;
+  }
+
+  @media (max-width: 768px) {
+    .moorabbin-section img:last-child {
+      margin-left: 0 !important;
+    }
+  }
+</style>
+
+{% endblock %}
