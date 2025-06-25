@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 {% block content %}
 
@@ -6,7 +7,7 @@
   <section class="hero-section d-flex align-items-center text-white">
     <div class="container-fluid px-5">
       <div class="hero-text text-start p-4 rounded shadow">
-        <h1 class="display-4 fw-bold fs-2"> Private Pilot Licence (PPL)</h1>
+        <h1 class="display-4 fw-bold fs-2">Private Pilot Licence (PPL)</h1>
       </div>
     </div>
   </section>
@@ -25,17 +26,20 @@
   </div>
 </section>
 
-<!-- Section 1: PPL Intro -->
+<!-- Section 1: PPL Intro Updated -->
 <section class="cpl-section py-5">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6">
-        <h3 class="fw-bold mb-4">Take Your Training Further</h3>
+        <h3 class="fw-bold mb-4">Private Pilot Licence (PPL) – Expanding Your Horizons</h3>
         <p class="text-muted fs-5">
-          The Private Pilot Licence (PPL) is your gateway to true aerial freedom. It qualifies you to fly further and with more passengers, opening the skies for cross-country flights in a wider range of airspace.
+          The PPL is your next step toward greater freedom in the skies. Issued by the Civil Aviation Safety Authority (CASA), it allows you to fly further, higher, and with more flexibility—anywhere in Australia and even internationally.
         </p>
         <p class="text-muted fs-5">
-          Designed for aspiring aviators seeking serious flying capability, the PPL is a critical step toward commercial training—or a fulfilling personal flying journey.
+          With a PPL, you can operate a wider range of aircraft and conduct cross-country flights, making it ideal for those seeking more than just local flying.
+        </p>
+        <p class="text-muted fs-5">
+          Whether you're chasing adventure or laying the groundwork for a commercial career, the PPL opens the door to a world of aviation possibilities.
         </p>
       </div>
       <div class="col-md-6 text-center">
@@ -45,29 +49,29 @@
   </div>
 </section>
 
-
-<!-- Section 2: Diploma of Aviation -->
+<!-- Section 2: How to Qualify for PPL -->
 <section class="py-5 bg-white">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6 mb-4 mb-md-0">
-        <img src="{{ url_for('static', filename='ppl3.jpg') }}" alt="PPL Training" class="img-fluid rounded shadow">
+        <img src="{{ url_for('static', filename='ppl3.jpg') }}" alt="PPL Requirements" class="img-fluid rounded shadow">
       </div>
       <div class="col-md-6">
-        <h2 class="fw-bold mb-4">Diploma of Aviation – Your Journey Through the PPL</h2>
+        <h2 class="fw-bold mb-4">How Do You Qualify for the PPL?</h2>
+        <ul class="text-muted fs-5">
+          <li>Be at least 17 years old</li>
+          <li>Complete a minimum of 40 flight hours (including solo navigation)</li>
+          <li>Pass a PPL theory exam and flight test</li>
+          <li>Hold a valid medical certificate</li>
+          <li>Demonstrate English language proficiency</li>
+        </ul>
         <p class="text-muted fs-5">
-          Take your passion for flying to new heights. The Diploma of Aviation integrates comprehensive Private Pilot Licence (PPL) training with academic study to help you build solid piloting skills.
-        </p>
-        <p class="text-muted fs-5">
-          This structured full-time program is ideal for those looking to progress confidently toward commercial flight training.
+          Training at Moorabbin Airport includes navigation by visual flight rules, GPS and other aids, and exposure to both controlled and non-controlled aerodromes.
         </p>
       </div>
     </div>
   </div>
 </section>
-
-
-
 
 <!-- CTA Apply Section -->
 <section class="apply-section position-relative text-center text-white d-flex align-items-center">
@@ -107,7 +111,7 @@
   }
 
   .cpl-section {
-    background-color: #8a7db2;
+    background-color: #5e5ef5;
     color: black;
   }
 
@@ -140,3 +144,5 @@
 </style>
 
 {% endblock %}
+
+
