@@ -1,34 +1,36 @@
 {% extends "base.html" %}
+
 {% block content %}
 <div class="container mt-4">
-  <h2 class="mb-4 text-center">Application Form</h2>
-  <form method="POST">
+  <h1 class="mb-4 text-center">Application Form</h1>
+
+  <form method="POST" aria-label="Flight School Application Form">
 
     <!-- 👤 Personal Details -->
-    <section class="p-4 mb-4 rounded shadow-sm border" style="background-color: #e7d8f7;">
-      <h4> Personal Details</h4>
+    <section class="p-4 mb-4 rounded shadow-sm border bg-personal">
+      <h2 class="h4">Personal Details</h2>
       <div class="row mb-3">
         <div class="col-md-4">
-          <label class="form-label">First Name</label>
-          <input class="form-control" type="text" name="first_name" required>
+          <label class="form-label" for="first_name">First Name</label>
+          <input class="form-control" type="text" name="first_name" id="first_name" autocomplete="given-name" required>
         </div>
         <div class="col-md-4">
-          <label class="form-label">Middle Name</label>
-          <input class="form-control" type="text" name="middle_name">
+          <label class="form-label" for="middle_name">Middle Name</label>
+          <input class="form-control" type="text" name="middle_name" id="middle_name">
         </div>
         <div class="col-md-4">
-          <label class="form-label">Last Name</label>
-          <input class="form-control" type="text" name="last_name" required>
+          <label class="form-label" for="last_name">Last Name</label>
+          <input class="form-control" type="text" name="last_name" id="last_name" autocomplete="family-name" required>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-6">
-          <label class="form-label">Date of Birth</label>
-          <input class="form-control" type="date" name="dob" required>
+          <label class="form-label" for="dob">Date of Birth</label>
+          <input class="form-control" type="date" name="dob" id="dob" required>
         </div>
         <div class="col-md-6">
-          <label class="form-label">Gender</label>
-          <select class="form-select" name="gender" required>
+          <label class="form-label" for="gender">Gender</label>
+          <select class="form-select" name="gender" id="gender" required>
             <option value="">Select</option>
             {% for g in gender_choices %}
               <option value="{{ g }}">{{ g }}</option>
@@ -39,51 +41,51 @@
     </section>
 
     <!-- 📞 Contact -->
-    <section class="p-4 mb-4 rounded shadow-sm border" style="background-color: #e7d8f7;">
-      <h4>Contact</h4>
+    <section class="p-4 mb-4 rounded shadow-sm border bg-contact">
+      <h2 class="h4">Contact Information</h2>
       <div class="row mb-3">
         <div class="col-md-6">
-          <label class="form-label">Primary Email</label>
-          <input class="form-control" type="email" name="primary_email" required>
+          <label class="form-label" for="primary_email">Primary Email</label>
+          <input class="form-control" type="email" name="primary_email" id="primary_email" autocomplete="email" required>
         </div>
         <div class="col-md-6">
-          <label class="form-label">Mobile Number</label>
-          <input class="form-control" type="text" name="mobile_number" required>
+          <label class="form-label" for="mobile_number">Mobile Number</label>
+          <input class="form-control" type="tel" name="mobile_number" id="mobile_number" autocomplete="tel" required>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-4">
-          <label class="form-label">Emergency Contact Name</label>
-          <input class="form-control" type="text" name="emergency_name" required>
+          <label class="form-label" for="emergency_name">Emergency Contact Name</label>
+          <input class="form-control" type="text" name="emergency_name" id="emergency_name" required>
         </div>
         <div class="col-md-4">
-          <label class="form-label">Relationship</label>
-          <input class="form-control" type="text" name="emergency_relationship" required>
+          <label class="form-label" for="emergency_relationship">Relationship</label>
+          <input class="form-control" type="text" name="emergency_relationship" id="emergency_relationship" required>
         </div>
         <div class="col-md-4">
-          <label class="form-label">Emergency Contact Number</label>
-          <input class="form-control" type="text" name="emergency_phone" required>
+          <label class="form-label" for="emergency_phone">Emergency Contact Number</label>
+          <input class="form-control" type="tel" name="emergency_phone" id="emergency_phone" required>
         </div>
       </div>
     </section>
 
     <!-- 🌍 Citizenship -->
-    <section class="p-4 mb-4 rounded shadow-sm border" style="background-color: #e7d8f7;">
-      <h4>Citizenship</h4>
+    <section class="p-4 mb-4 rounded shadow-sm border bg-citizenship">
+      <h2 class="h4">Citizenship Information</h2>
       <div class="row mb-3">
         <div class="col-md-6">
-          <label class="form-label">Nationality</label>
-          <input class="form-control" type="text" name="nationality" required>
+          <label class="form-label" for="nationality">Nationality</label>
+          <input class="form-control" type="text" name="nationality" id="nationality" required>
         </div>
         <div class="col-md-6">
-          <label class="form-label">Country of Birth</label>
-          <input class="form-control" type="text" name="country_of_birth" required>
+          <label class="form-label" for="country_of_birth">Country of Birth</label>
+          <input class="form-control" type="text" name="country_of_birth" id="country_of_birth" required>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-6">
-          <label class="form-label">Citizenship Status</label>
-          <select class="form-select" name="citizenship_status" required>
+          <label class="form-label" for="citizenship_status">Citizenship Status</label>
+          <select class="form-select" name="citizenship_status" id="citizenship_status" required>
             <option value="">Select</option>
             {% for c in citizenship_choices %}
               <option value="{{ c }}">{{ c }}</option>
@@ -94,16 +96,16 @@
     </section>
 
     <!-- 🎓 Education -->
-    <section class="p-4 mb-4 rounded shadow-sm border" style="background-color: #e7d8f7;">
-      <h4>Education</h4>
+    <section class="p-4 mb-4 rounded shadow-sm border bg-education">
+      <h2 class="h4">Educational Background</h2>
       <div class="row mb-3">
         <div class="col-md-6">
-          <label class="form-label">Secondary Education Level</label>
-          <input class="form-control" type="text" name="secondary_education_level" required>
+          <label class="form-label" for="secondary_education_level">Secondary Education Level</label>
+          <input class="form-control" type="text" name="secondary_education_level" id="secondary_education_level" required>
         </div>
         <div class="col-md-6">
-          <label class="form-label">Highest Level Completed</label>
-          <input class="form-control" type="text" name="highest_completed_level" required>
+          <label class="form-label" for="highest_completed_level">Highest Level Completed</label>
+          <input class="form-control" type="text" name="highest_completed_level" id="highest_completed_level" required>
         </div>
       </div>
       <div class="mb-3">
@@ -114,8 +116,8 @@
       </div>
       <div class="row mb-3">
         <div class="col-md-6">
-          <label class="form-label">Previous Qualification</label>
-          <select class="form-select" name="previous_qualification">
+          <label class="form-label" for="previous_qualification">Previous Qualification</label>
+          <select class="form-select" name="previous_qualification" id="previous_qualification">
             <option value="">Select</option>
             {% for q in qualification_choices %}
               <option value="{{ q }}">{{ q }}</option>
@@ -126,12 +128,12 @@
     </section>
 
     <!-- 🗣️ Language Skills -->
-    <section class="p-4 mb-4 rounded shadow-sm border" style="background-color: #e7d8f7;">
-      <h4>Language Skills</h4>
+    <section class="p-4 mb-4 rounded shadow-sm border bg-language">
+      <h2 class="h4">Language Skills</h2>
       <div class="row mb-3">
         <div class="col-md-6">
-          <label class="form-label">English Proficiency</label>
-          <select class="form-select" name="english_proficiency" required>
+          <label class="form-label" for="english_proficiency">English Proficiency</label>
+          <select class="form-select" name="english_proficiency" id="english_proficiency" required>
             <option value="">Select</option>
             {% for p in english_proficiency_choices %}
               <option value="{{ p }}">{{ p }}</option>
@@ -139,15 +141,50 @@
           </select>
         </div>
         <div class="col-md-6">
-          <label class="form-label">Other Languages</label>
-          <input class="form-control" type="text" name="other_languages">
+          <label class="form-label" for="other_languages">Other Languages</label>
+          <input class="form-control" type="text" name="other_languages" id="other_languages">
         </div>
       </div>
     </section>
 
     <div class="text-center mt-4">
-      <button class="btn btn-primary px-4 py-2 mb-4" type="submit" style="background-color: #1d0833;">Submit Application</button>
+      <button class="btn btn-primary px-4 py-2 mb-4" type="submit" style="background-color: #05094d;">Submit Application</button>
     </div>
   </form>
 </div>
+
+<!-- ✨ Custom Styles -->
+<style>
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    color: rgb(229, 189, 44) !important; /* goldenrod */
+    font-weight: 700 !important;
+  }
+
+  /* Section background color classes */
+  .bg-personal {
+    background-color: #05094d;
+    color: white;
+  }
+
+  .bg-contact {
+    background-color: #05094d;
+    color: white;
+  }
+
+  .bg-citizenship {
+    background-color: #05094d;
+    color: white;
+  }
+
+  .bg-education {
+    background-color: #05094d;
+    color: white;
+  }
+
+  .bg-language {
+    background-color: #05094d;
+    color: white;
+  }
+</style>
 {% endblock %}

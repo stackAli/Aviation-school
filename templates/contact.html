@@ -3,23 +3,23 @@
 {% block content %}
 <style>
   .contact-section {
-    background: linear-gradient(to right, #f5f7fa, #000000);
+    background: linear-gradient(to right, #fefefe, #ffffff);
     padding: 60px 0;
-    
   }
 
   .contact-info h4 {
     font-weight: bold;
-    color: #000000;
+    color: #05094d;
   }
 
   .contact-info p {
     font-size: 1.05rem;
-    color: #555;
+    color: #05094d;
   }
 
   .contact-form {
-    background-color: #ffffff;
+    background-color: #05094d;
+    color: #fefefe;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -43,42 +43,39 @@
     padding-left: 30px;
     padding-right: 30px;
   }
+  
 </style>
 
-<section class="contact-section">
+<section class="contact-section" aria-label="Contact Us Section">
   <div class="container">
-    <h1 class="text-center mb-5 fw-bold text-dark"> Contact Us</h1>
+    <h1 class="text-center mb-5 fw-bold " style="color: rgb(229, 189, 44);">Contact Goldwing’s Aviation</h1>
 
     <div class="row g-5">
       <!-- Contact Info -->
-      <div class="col-md-5 contact-info">
-        <h4>Our Address</h4>
-        <p>
-          Aviation College of Excellence<br>
-          2nd Floor, Aviation Plaza, Johar Town<br>
-          Lahore, Pakistan
-        </p>
+      <div class="col-md-5 contact-info" style="color: #05094d;">
+        <h2 class="h5" style="color: rgb(229, 189, 44);">Our Address</h2>
+        <p>Moorabbin Airport<br>Victoria, Australia</p>
 
-        <h4> Phone</h4>
-        <p>+92 300 1234567</p>
+        <h2 class="h5" style="color: rgb(229, 189, 44);">Phone</h2>
+        <p><a href="tel:+61400462610">+61 400 462 610</a></p>
 
-        <h4> Email</h4>
-        <p>info@aviationcollege.pk</p>
+        <h2 class="h5" style="color: rgb(229, 189, 44);">Email</h2>
+        <p><a href="mailto:info.goldwingsaviation@gmail.com">info.goldwingsaviation@gmail.com</a></p>
       </div>
 
       <!-- Contact Form -->
       <div class="col-md-7">
         <div class="contact-form">
-          <h4 class="mb-4">Send Us a Message</h4>
-          <form method="POST" action="#">
+          <h2 class="h5 mb-4" style="color: white;">Send us a message</h2>
+          <form method="POST" action="#" aria-label="Contact Form">
             <div class="mb-3">
-              <label for="name" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+              <label for="name" class="form-label" >Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" autocomplete="name" required>
             </div>
 
             <div class="mb-3">
               <label for="email" class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
             </div>
 
             <div class="mb-3">
@@ -86,18 +83,8 @@
               <textarea class="form-control" id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button type="submit" class="btn btn-primary" style="color: 05094d;">Send Message</button>
           </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Google Map -->
-    <div class="row mt-5">
-      <div class="col contact-map">
-        <h4 class="text-center mb-3 fw-semibold"> Find Us on the Map</h4>
-        <div class="ratio ratio-16x9">
-          <iframe src="https://maps.google.com/maps?q=johar%20town%20lahore&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>

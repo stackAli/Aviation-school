@@ -172,21 +172,6 @@ def apply():
 def end():
     return render_template('end.html')
 
-@app.route('/subscribe', methods=['POST'])
-def subscribe():
-    email = request.form.get('email')
-
-    if email:
-        msg = Message("New Email Subscription",
-                      sender=app.config['MAIL_USERNAME'],
-                      recipients=["info.goldwingsaviation@gmail.com"])
-        msg.body = f"New subscriber: {email}"
-        mail.send(msg)
-        flash("Thank you for subscribing!", "success")
-    else:
-        flash("Please enter a valid email.", "danger")
-
-    return redirect(request.referrer or url_for('home'))
 
 @app.route('/mission')
 def mission():

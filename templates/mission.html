@@ -2,6 +2,14 @@
 {% block content %}
 
 <style>
+  body{
+    color: #05094d;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    color: rgb(229, 189, 44) !important;
+    font-weight: 700 !important;
+  }
   .mission-section {
     padding: 60px 0;
     background-color: #f5f7fa;
@@ -23,23 +31,26 @@
 
   .mission-card {
     background: white;
-    border-left: 5px solid #ffcc00;
+    border-left: 5px solid #05094d;
     padding: 30px;
     margin-bottom: 40px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     border-radius: 8px;
   }
 
-  .mission-card h4 {
+  .mission-card h2 {
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 15px;
     color: #2e3b4e;
+    display: flex;
+    align-items: center;
   }
 
   .mission-card p {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: #495057;
+    
   }
 
   .icon-circle {
@@ -60,53 +71,44 @@
     .mission-title {
       font-size: 2rem;
     }
+    .mission-card h2 {
+      font-size: 1.25rem;
+    }
   }
 </style>
 
-<section class="mission-section container">
+<section class="mission-section container" aria-label="Flight School Mission Statement">
   <h1 class="mission-title">Our Mission</h1>
-  <p class="mission-subtitle">At the heart of everything we do is a commitment to safe, inclusive, and world-class aviation training.</p>
+ 
 
-  <!-- Mission Overview -->
+  <!-- Mission 1 -->
   <div class="mission-card">
-    <h4><span class="icon-circle">1</span>Inspiring the Next Generation</h4>
+  
     <p>
       At Goldwing’s Aviation, our mission is to inspire and develop the next generation of aviation professionals
-      through world-class, safe, and personalised training.
+      through world-class, safe, and personalised training programs.
     </p>
     <p>
-      We are a dedicated flight training organisation committed to equipping future pilots with the skills, knowledge,
-      and mindset needed to thrive in the aviation industry. From the fundamentals of flight to professional mentoring,
-      our programs blend hands-on experience with industry-standard theory.
+      We are a dedicated flight training organisation focused on equipping aspiring pilots with the knowledge,
+      discipline, and confidence to thrive in the aviation industry. Our programs blend hands-on flight time,
+      industry-relevant theory, and meaningful mentorship.
     </p>
   </div>
 
-  <!-- Safety -->
+  <!-- Mission 2 -->
   <div class="mission-card">
-    <h4><span class="icon-circle">2</span>Safety at Our Core</h4>
+ 
     <p>
-      Safety is at the core of everything we do—we provide secure, supportive training environments
-      that prepare students for the real-world responsibilities of a pilot.
+      Safety isn’t just a priority — it’s a principle. Goldwing’s provides a secure and supportive learning environment
+      that instills real-world responsibility in every pilot we train.
     </p>
     <p>
-      With a focus on both technical excellence and essential non-technical skills,
-      we strive to meet global standards and ensure our graduates are competitive in the aviation industry.
+      We focus on technical excellence as well as non-technical skills like decision-making, communication,
+      and situational awareness. Our commitment to safety aligns with global aviation standards.
     </p>
   </div>
 
-  <!-- Inclusion -->
-  <div class="mission-card">
-    <h4><span class="icon-circle">3</span>Welcoming Everyone</h4>
-    <p>
-      Everyone is welcome at Goldwing’s. We celebrate students of all backgrounds, experiences, and abilities.
-      Whether you’re just starting out or returning to aviation after time away,
-      our no-judgement culture fosters confidence, respect, and belonging.
-    </p>
-    <p>
-      We embrace varied learning styles and are committed to supporting each individual’s journey—
-      because aviation should be accessible to all who dream of flying.
-    </p>
-  </div>
+ 
 </section>
 
 {% endblock %}

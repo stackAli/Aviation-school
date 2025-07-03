@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- ✈️ Semantic Hero Section -->
+<!-- ✈️ Hero Section -->
 <header>
-  <section class="hero-section d-flex align-items-center text-white">
+  <section class="hero-section d-flex align-items-center text-white" aria-label="Aviation Hero Banner">
     <div class="container-fluid px-5">
       <div class="hero-text text-start p-4 rounded shadow">
         <h1 class="display-4 fw-bold fs-3">Take off with confidence — your aviation journey begins here</h1>
@@ -12,63 +12,63 @@
     </div>
   </section>
 </header>
-<!-- 📝 Text Section -->
-<section class="text-section py-5 bg-light">
+
+<!-- ✈️ Aviation Dream Section -->
+<section class="aviation-dream-section py-5 bg-light" aria-label="Aviation Dreams">
   <div class="container">
-    <div class="row">
-      <div class="col-md-10 mx-auto">
-        <h2 class="mb-4 text-center">Empowering Future Aviators with Excellence in Training and Vision in Flight</h2>
-
-        <p>
-          Welcome to <strong>GoldWings Aviation</strong> — where passion takes flight and futures are built in the skies.We offer a rigorous and immersive learning experience that equips aspiring pilots and aviation professionals with the skills, confidence, and discipline needed to excel in today’s dynamic aerospace industry. 
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h2 class="text-uppercase fw-bold mb-4">What’s Your Aviation Dream?</h2>
+        <p class="lead mb-5" style="color: #05094d;">
+          Is it the <strong style="color: #05094d;">thrill of your first takeoff</strong>?<br>
+          The <strong>pride of flying solo</strong>?<br>
+          The ambition to earn your <strong>RPL or PPL</strong>?<br>
+          Or perhaps, a passion to <strong>inspire others</strong> as a flight instructor,<br>
+          or to <strong>soar through the skies</strong> with the airlines?
         </p>
 
-        <p>
-          Whether you’re new to aviation or looking to sharpen your flying edge, GoldWings equips you with the knowledge, hands-on training, and confidence to soar. 
+        <hr class="mx-auto" style="width: 60px; height: 3px; background-color: #05094d; border: none;">
+
+        <h2 class="text-uppercase fw-bold my-4">Every Skyward Path Begins the Same Way</h2>
+        <p class="lead mb-5" style="color: #05094d;">
+          With the <strong>hum of a small engine</strong>,<br>
+          the <strong>lift of a wing</strong>,<br>
+          and the <strong>courage to take your first step into the skies</strong>.
         </p>
-        
-        <p>
-          With professional instructors, certified training programs, and a culture of discipline and leadership, our school stands tall among the rest. So yes, we’re proud — and we think you should be too.
+
+        <h2 class="text-uppercase fw-bold my-4">Start Your Journey With Us Today</h2>
+        <p class="lead" style="color: #05094d;">
+          Your dream awaits just <strong>above the horizon</strong>.<br>
+          Let us help you make it a <strong>reality</strong>.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- ✈️ Our Courses Section -->
-<section class="courses-section py-5 ">
+<section class="courses-section py-5" aria-label="Flight Training Courses">
   <div class="container">
-    <h2 class="text-center mb-5 fw-bold display-5 text-black">Our Courses</h2>
+    <h2 class="text-center mb-5 fw-bold display-5" style="color: rgb(229, 189, 44);">Our Courses</h2>
     <div class="row g-4 justify-content-center">
-
-      <!-- TIF Course -->
-      <div class="col-md-6 col-lg-5">
-        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/cpl.jpg');">
-          <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
-            <h4 class="text-white fw-bold">Trial Introductory Flights (TIF)</h4>
-            <p class="text-light px-3">Experience the thrill of flying with our Trial Introductory Flight (TIF) — your first step into the world of aviation</p>
-            <a href="/tif" class="btn btn-light btn-sm mt-2">Learn More</a>
-          </div>
-        </div>
-      </div>
 
       <!-- RPL Course -->
       <div class="col-md-6 col-lg-5">
-        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/rpl.jpg');">
+        <div class="course-card shadow-lg rounded-4 position-relative" style="background-image: url('/static/rpl.jpg');">
           <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
             <h4 class="text-white fw-bold">Recreational Pilot License (RPL)</h4>
             <p class="text-light px-3">Fly for leisure with certified skills and explore the skies on your own terms.</p>
-            <a href="/services" class="btn btn-light btn-sm mt-2">Learn More</a>
+            <a href="/rpl" class="btn btn-light btn-sm mt-2">Learn More</a>
           </div>
         </div>
       </div>
+
       <!-- PPL Course -->
       <div class="col-md-6 col-lg-5">
-        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/ppl.jpg');">
+        <div class="course-card shadow-lg rounded-4 position-relative" style="background-image: url('/static/ppl.jpg');">
           <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
-            <h4 class="text-white fw-bold">Private Pilot Liscence (PPL)</h4>
-            <p class="text-light px-3">Earn your wings with the Private Pilot Licence (PPL) — your gateway to flying for fun, travel, or future aviation pursuits.</p>
+            <h4 class="text-white fw-bold">Private Pilot License (PPL)</h4>
+            <p class="text-light px-3">Earn your wings — fly for fun, travel, or future aviation pursuits.</p>
             <a href="/ppl" class="btn btn-light btn-sm mt-2">Learn More</a>
           </div>
         </div>
@@ -78,17 +78,85 @@
   </div>
 </section>
 
+<!-- ✈️ Gallery Section -->
+<section class="container py-5" aria-label="Flight School Gallery">
+  <h2 class="text-center mb-4">Gallery</h2>
+  <div class="row justify-content-center g-4">
+
+    <!-- Gallery Box 1 - Large -->
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="card gallery-card shadow-lg border-0">
+        <img src="{{ url_for('static', filename='a1.jpg') }}" class="card-img-top rounded" alt="Flight Training 1">
+      </div>
+    </div>
+
+    <!-- Gallery Box 2 - Small -->
+    <div class="col-6 col-md-2">
+      <div class="card gallery-card shadow border-0">
+        <img src="{{ url_for('static', filename='a2.jpg') }}" class="card-img-top rounded" alt="Flight Training 2">
+      </div>
+    </div>
+
+    <!-- Gallery Box 3 - Large -->
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="card gallery-card shadow-lg border-0">
+        <img src="{{ url_for('static', filename='a3.jpg') }}" class="card-img-top rounded" alt="Flight Training 3">
+      </div>
+    </div>
+
+    <!-- Gallery Box 4 - Small -->
+    <div class="col-6 col-md-2">
+      <div class="card gallery-card shadow border-0">
+        <img src="{{ url_for('static', filename='a5.jpg') }}" class="card-img-top rounded" alt="Flight Training 4">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ✈️ Custom Styles -->
 <style>
+  h2, h3, h4, h5, h6 {
+    color: rgb(229, 189, 44) !important;
+    font-weight: 700 !important;
+  }
+
+  .hero-section {
+    background-image: url('{{ url_for("static", filename="image1.jpg") }}');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: calc(100vh - 56px);
+    width: 100%;
+    padding-top: 56px;
+    box-shadow: inset 0 -10px 50px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-text {
+    background-color: rgba(237, 233, 233, 0.7);
+    max-width: 600px;
+    margin-left: auto;
+    margin-top: 150px;
+    border-radius: 20px;
+    color: #05094d;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  .courses-section {
+    background-color: #05094d;
+  }
+
   .course-card {
     height: 300px;
     background-size: cover;
     background-position: center;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    transform-style: preserve-3d;
   }
 
   .course-card:hover {
-    transform: scale(1.03);
+    transform: scale(1.05) translateZ(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   }
 
   .overlay {
@@ -102,74 +170,22 @@
   .course-card:hover .overlay {
     opacity: 1;
   }
-  .courses-section{
-    
-    background-color: #4b3d78;
-  }
-</style>
 
-<section class="container py-5">
-  <h2 class="text-center mb-4">Gallery</h2>
-  <div class="row justify-content-center">
-
-    <!-- Gallery Box 1 -->
-    <div class="col-6 col-md-3" style="margin-top: 60px;">
-      <div class="card shadow rounded">
-        <img src="{{ url_for('static', filename='a1.jpg') }}" class="card-img-top rounded" alt="Gallery 1">
-      </div>
-    </div>
-
-    <!-- Gallery Box 2 -->
-    <div class="col-6 col-md-3" style="margin-top: 40px;">
-      <div class="card shadow rounded">
-        <img src="{{ url_for('static', filename='a2.jpg') }}" class="card-img-top rounded" alt="Gallery 2">
-      </div>
-    </div>
-
-    <!-- Gallery Box 3 -->
-    <div class="col-6 col-md-3" style="margin-top: 20px;">
-      <div class="card shadow rounded">
-        <img src="{{ url_for('static', filename='a3.jpg') }}" class="card-img-top rounded" alt="Gallery 3">
-      </div>
-    </div>
-
-    <!-- Gallery Box 4 -->
-    <div class="col-6 col-md-3" style="margin-top: 0;">
-      <div class="card shadow rounded">
-        <img src="{{ url_for('static', filename='a5.jpg') }}" class="card-img-top rounded" alt="Gallery 4">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-<style>
-  .hero-section {
-    background-image: url('{{ url_for("static", filename="image1.jpg") }}');
-    background-size: cover;
-    background-position: center;
-    height: calc(100vh - 56px); /* Adjust for navbar height */
-    width: 100%;
-    padding-top: 56px; /* Optional: if navbar is fixed */
+  .gallery-card {
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
   }
 
-  .hero-text {
-    background-color: rgba(237, 233, 233, 0.6);
-    max-width: 600px;
-    margin-left: auto;
-    margin-top: 150px;
-    color: #281e46;
-    
+  .gallery-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
   }
 
   @media (max-width: 576px) {
-    .hero-text h1 {
-      font-size: 2rem;
+    .hero-section {
+      height: 35vh;
     }
-    .hero-text p {
-      font-size: 1rem;
+    .hero-text {
+      display: none !important;
     }
   }
 </style>

@@ -1,7 +1,18 @@
 {% extends "base.html" %}
+
+{% block head %}
+  <title>Our Values | Goldwing's Aviation - Safety, Diversity & Community</title>
+  <meta name="description" content="At Goldwing’s Aviation, safety, diversity, and community engagement are at the core of our mission. Learn about our commitment to providing inclusive, safe, and supportive pilot training.">
+  <meta name="keywords" content="aviation values, flight school values, safety in aviation, diversity in flight training, community aviation">
+  <link rel="canonical" href="{{ url_for('values', _external=True) }}">
+{% endblock %}
+
 {% block content %}
 
 <style>
+  body{
+    color: #05094d;
+  }
   .values-section {
     padding: 60px 0;
     background-color: #f9fafc;
@@ -13,10 +24,15 @@
     text-align: center;
     color: #1e2a38;
   }
+   h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    color: rgb(229, 189, 44) !important;
+    font-weight: 700 !important;
+  }
 
   .value-card {
     background: white;
-    border-left: 5px solid #ffc107;
+    border-left: 5px solid #05094d;
     padding: 30px;
     margin-bottom: 40px;
     border-radius: 10px;
@@ -26,13 +42,13 @@
   .value-card h4 {
     font-weight: 600;
     margin-bottom: 15px;
-    color: #2c3e50;
+   
   }
 
   .value-card p {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: #495057;
+    
   }
 
   .icon-badge {
@@ -56,37 +72,39 @@
   }
 </style>
 
-<section class="values-section container">
-  <h1 class="values-title mb-5">Our Values</h1>
+<main>
+  <section class="values-section container" aria-label="Our Values">
+    <h1 class="values-title mb-5">Our Values</h1>
 
-  <!-- Safety First -->
-  <div class="value-card">
-    <h4><span class="icon-badge">1</span>Safety First</h4>
-    <p>
-      Safety is at the heart of everything we do. From flight operations to daily decisions,
-      we foster a culture where the well-being of our students, staff, and community comes first.
-    </p>
-  </div>
+    <!-- Safety First -->
+    <article class="value-card" aria-labelledby="value-safety">
+      <h2 id="value-safety">Safety First</h2>
+      <p>
+        Safety is at the heart of everything we do. From flight operations to daily decisions,
+        we foster a culture where the well-being of our students, staff, and community comes first.
+      </p>
+    </article>
 
-  <!-- Diversity and Inclusion -->
-  <div class="value-card">
-    <h4><span class="icon-badge">2</span>Diversity and Inclusion</h4>
-    <p>
-      We proudly support a diverse student body, welcoming individuals of all ages, backgrounds, and learning styles.
-      Our tailored approach embraces adult learning principles, creating an inclusive and positive training environment
-      where everyone feels valued.
-    </p>
-  </div>
+    <!-- Diversity and Inclusion -->
+    <article class="value-card" aria-labelledby="value-diversity">
+      <h2 id="value-diversity">Diversity and Inclusion</h2>
+      <p>
+        We proudly support a diverse student body, welcoming individuals of all ages, backgrounds, and learning styles.
+        Our tailored approach embraces adult learning principles, creating an inclusive and positive training environment
+        where everyone feels valued.
+      </p>
+    </article>
 
-  <!-- Community Engagement -->
-  <div class="value-card">
-    <h4><span class="icon-badge">3</span>Community Engagement</h4>
-    <p>
-      Goldwing’s is more than a flight school—it’s a community. We promote collaboration among students, families, and instructors,
-      encouraging shared knowledge and mutual support. Through local partnerships and a welcoming atmosphere,
-      we aim to positively contribute to the broader aviation community.
-    </p>
-  </div>
-</section>
+    <!-- Community Engagement -->
+    <article class="value-card" aria-labelledby="value-community">
+      <h2 id="value-community">Community Engagement</h2>
+      <p>
+        Goldwing’s is more than a flight school—it’s a community. We promote collaboration among students, families, and instructors,
+        encouraging shared knowledge and mutual support. Through local partnerships and a welcoming atmosphere,
+        we aim to positively contribute to the broader aviation community.
+      </p>
+    </article>
+  </section>
+</main>
 
 {% endblock %}
