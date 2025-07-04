@@ -17,7 +17,7 @@
 <section class="aviation-dream-section py-5 bg-light" aria-label="Aviation Dreams">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-10 text-center">
+      <div class="col-lg-10 text-center scroll-popup">
         <h2 class="text-uppercase text-purple fw-bold mb-4">What’s Your Aviation Dream?</h2>
         <p class="lead  mb-5" style="color: #05094d;">
           Is it the <strong style="color: #05094d;">thrill of your first takeoff</strong>?<br>
@@ -53,7 +53,7 @@
     <div class="row g-4 justify-content-center">
 
       <!-- RPL Course -->
-      <div class="col-md-6 col-lg-5">
+      <div class="col-md-6 col-lg-5 scroll-popup">
         <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/rpl.jpg');">
           <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
             <h4 class="text-white fw-bold">Recreational Pilot License (RPL)</h4>
@@ -64,7 +64,7 @@
       </div>
 
       <!-- PPL Course -->
-      <div class="col-md-6 col-lg-5">
+      <div class="col-md-6 col-lg-5 scroll-popup">
         <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/ppl.jpg');">
           <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
             <h4 class="text-white fw-bold">Private Pilot License (PPL)</h4>
@@ -80,34 +80,33 @@
 
 <!-- ✈️ Gallery Section -->
 <section class="container py-5" aria-label="Flight School Gallery">
-  
   <div class="row justify-content-center">
 
-    <!-- Gallery Box 1 -->
-    <div class="col-6 col-md-3" style="margin-top: 60px;">
-      <div class="card shadow rounded">
-        <img src="{{ url_for('static', filename='a1.jpg') }}" class="card-img-top rounded" alt="Flight Training 1">
+    <!-- Small -->
+    <div class="col-6 col-md-3 mb-4 scroll-popup" style="margin-top: 20px;">
+      <div class="card shadow rounded overflow-hidden">
+        <img src="{{ url_for('static', filename='a1.jpg') }}" class="card-img-top rounded" alt="Flight Training 1" style="height: 350px; object-fit: cover; ">
       </div>
     </div>
 
-    <!-- Gallery Box 2 -->
-    <div class="col-6 col-md-3" style="margin-top: 40px;">
-      <div class="card shadow rounded">
-        <img src="{{ url_for('static', filename='a2.jpg') }}" class="card-img-top rounded" alt="Flight Training 2">
+    <!-- Large -->
+    <div class="col-6 col-md-3 mb-4 scroll-popup">
+      <div class="card shadow rounded overflow-hidden">
+        <img src="{{ url_for('static', filename='a2.jpg') }}" class="card-img-top rounded" alt="Flight Training 2" style="height: 400px; object-fit: cover;">
       </div>
     </div>
 
-    <!-- Gallery Box 3 -->
-    <div class="col-6 col-md-3" style="margin-top: 20px;">
-      <div class="card shadow rounded">
-        <img src="{{ url_for('static', filename='a3.jpg') }}" class="card-img-top rounded" alt="Flight Training 3">
+    <!-- Small -->
+    <div class="col-6 col-md-3 mb-4 scroll-popup" style="margin-top: 20px;">
+      <div class="card shadow rounded overflow-hidden">
+        <img src="{{ url_for('static', filename='a3.jpg') }}" class="card-img-top rounded" alt="Flight Training 3" style="height: 350px; object-fit: cover;">
       </div>
     </div>
 
-    <!-- Gallery Box 4 -->
-    <div class="col-6 col-md-3">
-      <div class="card shadow rounded">
-        <img src="{{ url_for('static', filename='a5.jpg') }}" class="card-img-top rounded" alt="Flight Training 4">
+    <!-- Large -->
+    <div class="col-6 col-md-3 mb-4 scroll-popup">
+      <div class="card shadow rounded overflow-hidden">
+        <img src="{{ url_for('static', filename='a5.jpg') }}" class="card-img-top rounded" alt="Flight Training 4" style="height: 400px; object-fit: cover;">
       </div>
     </div>
 
@@ -116,9 +115,8 @@
 
 <!-- ✈️ Custom Styles -->
 <style>
-
    h2, h3, h4, h5, h6 {
-    color: rgb(229, 189, 44) !important;
+    color: rgb(214, 187, 42) !important;
     font-weight: 700 !important;
   }
   .hero-section {
@@ -166,6 +164,19 @@
     opacity: 1;
   }
 
+ /* Scroll popup animation (slower) */
+.scroll-popup {
+  opacity: 0;
+  transform: translateY(50px); /* More distance */
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.scroll-popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
   @media (max-width: 576px) {
     .hero-section {
       height: 35vh; /* Decreased height on mobile */
@@ -174,6 +185,94 @@
       display: none !important;
     }
   }
+
+  
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollItems = document.querySelectorAll('.scroll-popup');
+
+    function checkScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      scrollItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+
+        if (itemTop < triggerBottom) {
+          item.classList.add('show');
+        } else {
+          item.classList.remove('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // check on page load
+  });
+
+
+  
+</script>
+<!-- ... rest of your content ... -->
+
+<style>
+  /* Hero background is set in your existing .hero-section */
+
+  /* Initial hidden and moved up */
+  .opacity-0 {
+    opacity: 0;
+  }
+
+  .translate-up {
+    transform: translateY(-20px);
+  }
+
+  /* Fade in + slide down */
+  .fade-slide-in {
+    animation: fadeSlideDown 1s forwards;
+  }
+
+  @keyframes fadeSlideDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Navbar animation - assuming navbar has id="navbar" or class */
+  #navbar {
+    opacity: 0;
+  }
+
+  #navbar.fade-in {
+    animation: fadeIn 0.8s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animate navbar after a short delay (assuming navbar id is 'navbar')
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+      setTimeout(() => {
+        navbar.classList.add('fade-in');
+      }, 500);  // Navbar appears after 0.5s
+    }
+
+    // Animate hero text after navbar animation completes
+    const heroText = document.getElementById('hero-text');
+    setTimeout(() => {
+      heroText.classList.add('fade-slide-in');
+    }, 1200); // Hero text appears after 1.2s
+  });
+</script>
+
 
 {% endblock %}
