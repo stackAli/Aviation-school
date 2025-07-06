@@ -1,83 +1,75 @@
 {% extends "base.html" %}
-
-{% block head %}
-  <title>Our Values | Goldwing's Aviation - Safety, Diversity & Community</title>
-  <meta name="description" content="At Goldwing’s Aviation, safety, diversity, and community engagement are at the core of our mission. Learn about our commitment to providing inclusive, safe, and supportive pilot training.">
-  <meta name="keywords" content="aviation values, flight school values, safety in aviation, diversity in flight training, community aviation">
-  <link rel="canonical" href="{{ url_for('values', _external=True) }}">
-{% endblock %}
-
 {% block content %}
 
 <style>
-  body{
+  body {
+    background-color: #05094d;
     color: #05094d;
-  }
-  .values-section {
-    padding: 60px 0;
-    background-color: #f9fafc;
+    font-size: 1.15rem;
+    font-weight: 500;
   }
 
-  .values-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    color: #1e2a38;
-  }
-   h1, h2, h3, h4, h5, h6 {
+  /* Make all headings yellow */
+  h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px;
     color: rgb(229, 189, 44) !important;
     font-weight: 700 !important;
   }
 
-  .value-card {
-    background: white;
-    border-left: 5px solid #05094d;
-    padding: 30px;
-    margin-bottom: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  }
-
-  .value-card h4 {
-    font-weight: 600;
-    margin-bottom: 15px;
-   
-  }
-
-  .value-card p {
-    font-size: 1.05rem;
-    line-height: 1.7;
+  .values-section {
     
+
+    padding: 60px 0;
   }
 
-  .icon-badge {
-    width: 45px;
-    height: 45px;
-    background-color: #ffc107;
-    color: #1e2a38;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
+  .values-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .values-content {
+    background: white;
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    line-height: 1.9;
+    font-size: 1.2rem;
+    color: #05094d; /* dark blue text inside container */
+  }
+
+  .value-item {
+    margin-bottom: 30px;
+  }
+
+  .value-item h2 {
+    font-weight: 700;
+    /* No need for color here because h2 is already set globally */
+    margin-bottom: 12px;
+  }
+
+  .value-item p {
+    color: #05094d;
   }
 
   @media (max-width: 576px) {
     .values-title {
       font-size: 2rem;
     }
+
+    .values-content {
+      padding: 25px;
+      font-size: 1.1rem;
+    }
   }
 </style>
 
-<main>
-  <section class="values-section container" aria-label="Our Values">
-    <h1 class="values-title mb-5">Our Values</h1>
+<section class="values-section container" aria-label="Our Values">
+  <h1 class="values-title">Our Values</h1>
 
-    <!-- Safety First -->
-    <article class="value-card" aria-labelledby="value-safety">
+  <div class="values-content">
+    <article class="value-item" aria-labelledby="value-safety">
       <h2 id="value-safety">Safety First</h2>
       <p>
         Safety is at the heart of everything we do. From flight operations to daily decisions,
@@ -85,8 +77,7 @@
       </p>
     </article>
 
-    <!-- Diversity and Inclusion -->
-    <article class="value-card" aria-labelledby="value-diversity">
+    <article class="value-item" aria-labelledby="value-diversity">
       <h2 id="value-diversity">Diversity and Inclusion</h2>
       <p>
         We proudly support a diverse student body, welcoming individuals of all ages, backgrounds, and learning styles.
@@ -95,8 +86,7 @@
       </p>
     </article>
 
-    <!-- Community Engagement -->
-    <article class="value-card" aria-labelledby="value-community">
+    <article class="value-item" aria-labelledby="value-community">
       <h2 id="value-community">Community Engagement</h2>
       <p>
         Goldwings is more than a flight school—it’s a community. We promote collaboration among students, families, and instructors,
@@ -104,7 +94,7 @@
         we aim to positively contribute to the broader aviation community.
       </p>
     </article>
-  </section>
-</main>
+  </div>
+</section>
 
 {% endblock %}

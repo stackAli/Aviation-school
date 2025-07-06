@@ -1,107 +1,115 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="container py-5">
-  <h1 class="text-center mb-5">About Goldwings Aviation</h1>
+<section class="container-fluid px-0">
 
-  <!-- ✈️ Section 1: Our Story -->
-  <div class="row align-items-center mb-5">
-    <div class="col-md-6 mb-4 mb-md-0">
-      <img src="{{ url_for('static', filename='a-about.jpg') }}"
-           class="img-fluid rounded shadow"
-           alt="Goldwings Aviation flight school campus"
-           loading="lazy">
-    </div>
-    <div class="col-md-6">
-      <h2 class="h4 mb-3">Our Story</h2>
-      <p>
+  <!-- ✈️ Section 1: About Heading -->
+  <section class="py-5 bg-light text-center">
+    <h1 class="mb-4">About Goldwings Aviation</h1>
+    <div class="container" style="max-width: 900px;">
+      <p style="color: #05094d; font-size: 1rem; line-height: 1.6;">
         <strong>Goldwings Aviation</strong> was established in 2025. We offer a boutique flight school experience, focused on quality and personalised service. Here, you're not just one of hundreds—you’re part of our community from day one.
-
-       
       </p>
     </div>
-  </div>
+  </section>
 
-  <!-- 👨‍✈️ Section 2: Chief Flight Instructor -->
-  <div class="row align-items-center mb-5 flex-md-row-reverse">
-    <div class="col-md-6 mb-4 mb-md-0">
-      <img src="{{ url_for('static', filename='chief-instructor.jpg') }}"
-           class="img-fluid rounded shadow"
-           alt="Chief Flight Instructor Muhammad Khalid"
-           loading="lazy">
+  <!-- 👨‍✈️ Section 2: Chief Instructor -->
+  <section class="py-5" style="background-color: #05094d; color: white;">
+    <div class="container">
+      <div class="row align-items-center flex-md-row-reverse">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="{{ url_for('static', filename='about1.jpg') }}"
+               class="img-fluid rounded shadow align-self-stretch"
+               alt="Chief Flight Instructor Muhammad Khalid"
+               loading="lazy"
+               style="object-fit: cover; width: 100%; height: 400px; margin-top: 30px;">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+          <h2 class="h4 mb-3">Meet Our Chief Flight Instructor</h2>
+          <p>
+            Our Chief Instructor, <strong>Muhammad Khalid</strong>, began his flying career in 2015, flying out of Point Cook. Throughout his journey from RPL to PPL and CPL, flying across Victoria, Khalid discovered the importance of high-quality instruction and meaningful mentoring.
+          </p>
+          <p>
+            Khalid is a senior flight instructor with hundreds of hours of teaching experience. He can guide you from your very first lesson all the way to your PPL flight test. He’s driven by a genuine passion for helping students succeed and achieve their goals.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h2 class="h4 mb-3">Meet Our Chief Flight Instructor</h2>
-      <p>
-        Our Chief Instructor, <strong>Muhammad Khalid</strong>, began his flying career in 2015, flying out of  Point Cook. Throughout his journey from RPL to PPL and CPL, flying across Victoria, Khalid discovered the importance of high-quality instruction and meaningful mentoring.
-
-      </p>
-      <p>
-        Khalid is a senior flight instructor with hundreds of hours of teaching experience. He can guide you from your very first lesson all the way to your PPL flight test. He’s driven by a genuine passion for helping students succeed and achieve their goals.
-
-
-      </p>
-    </div>
-  </div>
+  </section>
 
   <!-- 🛩️ Section 3: Our Training Programs -->
-  <div class="row align-items-center mb-5">
-    <div class="col-md-6 mb-4 mb-md-0">
-      <img src="{{ url_for('static', filename='aviation-about.jpg') }}"
-           class="img-fluid rounded shadow"
-           alt="Cessna 172 training aircraft"
-           loading="lazy">
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="{{ url_for('static', filename='about2.jpeg') }}"
+               class="img-fluid rounded shadow"
+               alt="Cessna 172 training aircraft"
+               loading="lazy"
+               style="object-fit: cover; width: 100%; height: 350px; margin-top: 30px;">
+        </div>
+        <div class="col-md-6">
+          <h2 class="h4 mb-3">Flight Training We Offer</h2>
+          <p>
+            We currently offer <strong>RPL</strong> and <strong>PPL</strong> training in our own <strong>Cessna 172</strong>, with flexible lesson times to fit around your school, work, or family commitments.
+          </p>
+          <p class="mt-3">
+            If you’ve ever dreamed of flying, <a href="/contact"><strong>Contact us</strong></a> today to learn more or book a school tour.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h2 class="h4 mb-3">Flight Training We Offer</h2>
-      <p>
-        We currently offer <strong>RPL</strong> and <strong>PPL</strong> training in our own <strong>Cessna 172</strong>, with flexible lesson times to fit around your school, work, or family commitments.
-      </p>
-      <p class="mt-3">
-        
-        If you’ve ever dreamed of flying, <a href="/contact"><strong>Contact us</strong></a> today to learn more or book a school tour. 
-      </p>
-    </div>
-  </div>
+  </section>
 
   <!-- 🌏 Section 4: Moorabbin Airport Info -->
- <div class="row align-items-center mb-5">
-  <div class="col-md-12">
-    <h2 class="h4 mb-3">Why Train at Moorabbin Airport with Goldwings Aviation</h2>
-    <p>
-      <strong>Moorabbin Airport</strong> is home to one of the largest aviation education precincts in the world. With five operational runways,
-      24-hour access, and air traffic control services, it offers students a real-world flying experience to fly in both
-      <strong>fixed-wing aircraft</strong> or <strong>rotary aircraft</strong>.
-    </p>
-    <p>
-      Located just <strong>20km from Melbourne CBD</strong>, Moorabbin provides the perfect place to learn to fly.
-      <em>"If you can fly here, you can fly anywhere."</em>
-    </p>
-    <p>
-      <strong>Goldwings Aviation</strong> is conveniently located right next to the Moorabbin Airport control tower, providing quick acess to runways and airside operations. Students benefit from our dedicated learning environment, added services like a
-      courtesy collection service from the pilot shop and direct access to our training aircraft parked just steps away from the classroom.
-    </p>
-    <p>
-      We understand your time is valuable, the <strong>Goldwings Aviation facilities</strong> ensures a smooth, efficient training experience
-      from ground briefings to takeoff. 
-    </p>
-  </div>
-</div>
+  <section class="py-5" style="background-color: #05094d; color: white;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="h4 mb-3">Why Train at Moorabbin Airport with Goldwings Aviation</h2>
+          <p>
+            Moorabbin Airport is home to one of the largest aviation education precincts in the world. With five operational runways,
+            24-hour access, and air traffic control services, it offers students a real-world flying experience to fly in both
+            fixed-wing aircraft or rotary aircraft.
+          </p>
+          <p>
+            Located just 20km from Melbourne CBD, Moorabbin provides the perfect place to learn to fly.
+            <em>"If you can fly here, you can fly anywhere."</em>
+          </p>
+          <p>
+            Goldwings Aviation is conveniently located right next to the Moorabbin Airport control tower, providing quick access to runways and airside operations. Students benefit from our dedicated learning environment, added services like a
+            courtesy collection service from the pilot shop and direct access to our training aircraft parked just steps away from the classroom.
+          </p>
+          <p>
+            We understand your time is valuable, and Goldwings Aviation facilities ensure a smooth, efficient training experience
+            from ground briefings to takeoff.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </section>
 
 <!-- 🎨 Custom Styles -->
 <style>
-  body{
+  body {
     color: #05094d;
+    background-color: #ffffff;
   }
+
   h1, h2, h3, h4, h5, h6 {
-    color: rgb(229, 189, 44) !important;
+    color: #e5bd2c !important;
     font-weight: 700 !important;
   }
 
-  .container {
-    margin-top: 10px;
-    margin-bottom: 50px;
+  a {
+    color: #05094d;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: #e5bd2c;
+    text-decoration: none;
   }
 
   @media (max-width: 768px) {

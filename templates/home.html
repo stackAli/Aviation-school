@@ -6,45 +6,50 @@
   <section class="hero-section d-flex align-items-center text-white" aria-label="Aviation Hero Banner">
     <div class="container-fluid px-5">
       <div class="hero-text text-start p-4 rounded shadow">
-        <h1 class="display-4 fw-bold fs-3">Take off with confidence — your aviation journey begins here</h1>
-        <p class="lead fw-light">Where your flight begins — Learn, Train & Soar with GoldWings</p>
+        <h1 class="display-4 fw-bold fs-3">What’s Your Aviation Dream?</h1>
+        <p class="lead fw-light">
+          Is it the thrill of your first takeoff?<br>
+          The pride of flying solo?<br>
+          The ambition to earn your RPL or PPL?<br>
+          Or perhaps, a passion to inspire others as a flight instructor,<br>
+          or to soar through the skies with the airlines?
+        </p>
       </div>
     </div>
   </section>
 </header>
 
+
 <!-- ✈️ Aviation Dream Section -->
 <section class="aviation-dream-section py-5 bg-light" aria-label="Aviation Dreams">
-  <div class="container">
+  <div class="container" >
     <div class="row justify-content-center">
       <div class="col-lg-10 text-center scroll-popup">
-        <h2 class="text-uppercase text-purple fw-bold mb-4">What’s Your Aviation Dream?</h2>
-        <p class="lead  mb-5" style="color: #05094d;">
-          Is it the <strong style="color: #05094d;">thrill of your first takeoff</strong>?<br>
-          The <strong class="text-purple">pride of flying solo</strong>?<br>
-          The ambition to earn your <strong class="text-purple">RPL or PPL</strong>?<br>
-          Or perhaps, a passion to <strong class="text-purple">inspire others as a flight instructor</strong>,<br>
-          or to <strong class="text-purple">soar through the skies with the airlines</strong>?
+
+        <p class="lead text-uppercase fw-medium my-4" style="color: #05094d;">
+          No matter your dream, every Skyward Path Begins the Same Way
         </p>
 
-        <hr class="mx-auto" style="width: 60px; height: 3px; background-color: #05094d; border: none;">
-
-        <h2 class="text-uppercase text-purple fw-bold my-4">Every Skyward Path Begins the Same Way</h2>
-        <p class="lead  mb-5" style="color: #05094d;">
-          With the <strong class="text-purple">hum of a small engine</strong>,<br>
-          the <strong class="text-purple">lift of a wing</strong>,<br>
-          and the <strong class="text-purple">courage to take your first step into the skies</strong>.
+        <p class="lead fw-medium mb-4" style="color: #05094d;">
+          With the hum of a small engine,<br>
+          the lift of a wing,<br>
+          and the courage to take your first step into the skies.
         </p>
 
-        <h2 class="text-uppercase text-purple fw-bold my-4">Start Your Journey With Us Today</h2>
-        <p class="lead "style="color: #05094d;">
-          Your dream awaits just <strong class="text-purple">above the horizon</strong>.<br>
-          Let us help you make it a <strong class="text-purple">reality</strong>.
+        <p class="lead text-uppercase  fw-medium my-4" style="color: #05094d;">
+          Start Your Journey With Us Today
         </p>
+
+        <p class="lead fw-medium" style="color: #05094d;">
+          Your dream awaits just above the horizon.<br>
+          Let us help you make it a reality.
+        </p>
+
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- ✈️ Our Courses Section -->
 <section class="courses-section py-5" aria-label="Flight Training Courses">
@@ -54,7 +59,7 @@
 
       <!-- RPL Course -->
       <div class="col-md-6 col-lg-5 scroll-popup">
-        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/rpl.jpg');">
+        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/rpl3.jpg');">
           <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
             <h4 class="text-white fw-bold">Recreational Pilot License (RPL)</h4>
             <p class="text-light px-3">Fly for leisure with certified skills and explore the skies on your own terms.</p>
@@ -65,7 +70,7 @@
 
       <!-- PPL Course -->
       <div class="col-md-6 col-lg-5 scroll-popup">
-        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/ppl.jpg');">
+        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/ppl4.jpg');">
           <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
             <h4 class="text-white fw-bold">Private Pilot License (PPL)</h4>
             <p class="text-light px-3">Earn your wings — fly for fun, travel, or future aviation pursuits.</p>
@@ -79,62 +84,122 @@
 </section>
 
 <!-- ✈️ Gallery Section -->
-<section class="container py-5" aria-label="Flight School Gallery">
-  <div class="row justify-content-center">
+<section class="container py-5" aria-label="Flight School Gallery" sty>
+  <div class="position-relative">
 
-    <!-- Small -->
-    <div class="col-6 col-md-3 mb-4 scroll-popup" style="margin-top: 20px;">
-      <div class="card shadow rounded overflow-hidden">
-        <img src="{{ url_for('static', filename='a1.jpg') }}" class="card-img-top rounded" alt="Flight Training 1" style="height: 350px; object-fit: cover; ">
-      </div>
-    </div>
+    <!-- Slider Image -->
+    <img id="sliderImage" src="{{ url_for('static', filename='b2.jpg') }}"
+         class="img-fluid rounded shadow"
+         style="width: 100%; height: 500px; object-fit: cover; "
+         alt="Flight Training Image">
 
-    <!-- Large -->
-    <div class="col-6 col-md-3 mb-4 scroll-popup">
-      <div class="card shadow rounded overflow-hidden">
-        <img src="{{ url_for('static', filename='a2.jpg') }}" class="card-img-top rounded" alt="Flight Training 2" style="height: 400px; object-fit: cover;">
-      </div>
-    </div>
+    <!-- Previous Button -->
+    <button onclick="prevImage()"
+            class="nav-btn position-absolute"
+            style="top: 50%; left: 20px; transform: translateY(-50%);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z"/>
+      </svg>
+    </button>
 
-    <!-- Small -->
-    <div class="col-6 col-md-3 mb-4 scroll-popup" style="margin-top: 20px;">
-      <div class="card shadow rounded overflow-hidden">
-        <img src="{{ url_for('static', filename='a3.jpg') }}" class="card-img-top rounded" alt="Flight Training 3" style="height: 350px; object-fit: cover;">
-      </div>
-    </div>
-
-    <!-- Large -->
-    <div class="col-6 col-md-3 mb-4 scroll-popup">
-      <div class="card shadow rounded overflow-hidden">
-        <img src="{{ url_for('static', filename='a5.jpg') }}" class="card-img-top rounded" alt="Flight Training 4" style="height: 400px; object-fit: cover;">
-      </div>
-    </div>
+    <!-- Next Button -->
+    <button onclick="nextImage()"
+            class="nav-btn position-absolute"
+            style="top: 50%; right: 20px; transform: translateY(-50%);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708L9.293 7 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </button>
 
   </div>
 </section>
 
+<!-- Custom Button Styles -->
+<style>
+  .nav-btn {
+    background-color: #ffffffcc;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #05094d;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: #05094d;
+    color: #ffffff;
+    transform: scale(1.05);
+  }
+</style>
+
+<!-- Image Slider Logic -->
+<script>
+  const images = [
+    "{{ url_for('static', filename='b2.jpg') }}",
+    "{{ url_for('static', filename='b1.jpg') }}",
+    "{{ url_for('static', filename='b3.jpg') }}",
+    "{{ url_for('static', filename='b4.jpg') }}",
+    "{{ url_for('static', filename='b5.jpg') }}",
+    "{{ url_for('static', filename='b6.jpg') }}",
+    "{{ url_for('static', filename='b7.jpg') }}"
+  ];
+
+  let currentIndex = 0;
+  const sliderImage = document.getElementById("sliderImage");
+
+  function showImage(index) {
+    sliderImage.src = images[index];
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
+
+  // Auto-slide every 3 seconds
+  setInterval(nextImage, 10000);
+</script>
+
+
 <!-- ✈️ Custom Styles -->
 <style>
-   h2, h3, h4, h5, h6 {
+   h1,h2, h3, h4, h5, h6 {
     color: rgb(214, 187, 42) !important;
     font-weight: 700 !important;
   }
   .hero-section {
-    background-image: url('{{ url_for("static", filename="image1.jpg") }}');
+    background-image: url('{{ url_for("static", filename="h2.jpg") }}');
     background-size: cover;
+    overflow: hidden;
     background-position: center;
-    height: calc(100vh - 56px);
+    height: calc(150vh - 56px);
     width: 100%;
     padding-top: 56px;
+    margin-top: -180px;
+    margin-bottom: -50px;
+
   }
 
   .hero-text {
-    background-color: rgba(237, 233, 233, 0.6);
-    max-width: 600px;
-    margin-left: auto;
-    margin-top: 150px;
-    color: #05094d;
-  }
+  color: white;
+  margin-top: 700px;
+  background-color: rgba(5, 9, 77, 0.7); /* semi-transparent navy blue */
+  max-width: 550px;
+  position: absolute;
+  left: 0;
+  margin: 20px; /* spacing from edges */
+}
+
 
   .courses-section {
     background-color: #05094d;
