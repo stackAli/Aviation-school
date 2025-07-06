@@ -15,8 +15,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'info.goldwingsaviation@gmail.com'
-app.config['MAIL_PASSWORD'] = 'bclh ncrq aawi rmeg'
+app.config['MAIL_USERNAME'] = 'info@goldwingsaviation.com.au'
+app.config['MAIL_PASSWORD'] = 'bclh ncrq aawi rme'
 mail = Mail(app)
 
 # Init DB
@@ -33,6 +33,9 @@ def about():
 @app.route('/services')
 def services():
     return render_template("service.html", page="Services")
+@app.route('/pricing')
+def pricing():
+    return render_template('pricing.html', page="Pricing")
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -64,109 +67,6 @@ def cpl():
 def ppl():
     return render_template("ppl.html", page="PPL")
 
-@app.route('/apply', methods=['GET', 'POST'])
-def apply():
-    if request.method == 'POST':
-        form = request.form
-
-        # Check if user already exists
-        existing_user = User.query.filter_by(email=form['primary_email']).first()
-
-        if existing_user:
-            user = existing_user
-        else:
-            user = User(
-                email=form['primary_email'],
-                password_hash='temporary',
-                role='User'
-            )
-            db.session.add(user)
-            db.session.commit()
-
-        # Delete previous related data (if any) to avoid UNIQUE constraint errors
-        UserProfile.query.filter_by(user_id=user.id).delete()
-        EducationDetail.query.filter_by(user_id=user.id).delete()
-        LanguageSkill.query.filter_by(user_id=user.id).delete()
-
-        # Create and link UserProfile
-        profile = UserProfile(
-            user_id=user.id,
-            first_name=form['first_name'],
-            middle_name=form.get('middle_name'),
-            last_name=form['last_name'],
-            date_of_birth=datetime.strptime(form['dob'], '%Y-%m-%d').date(),
-            gender=form['gender'],
-            primary_email=form['primary_email'],
-            mobile_number=form['mobile_number'],
-            emergency_name=form['emergency_name'],
-            emergency_relationship=form['emergency_relationship'],
-            emergency_phone=form['emergency_phone'],
-            nationality=form['nationality'],
-            country_of_birth=form['country_of_birth'],
-            citizenship_status=form['citizenship_status']
-        )
-        db.session.add(profile)
-
-        # Create and link EducationDetail
-        education = EducationDetail(
-            user_id=user.id,
-            secondary_education_level=form['secondary_education_level'],
-            highest_completed_level=form['highest_completed_level'],
-            still_enrolled=bool(form.get('still_enrolled')),
-            previous_qualification=form.get('previous_qualification') or None
-        )
-        db.session.add(education)
-
-        # Create and link LanguageSkill
-        language = LanguageSkill(
-            user_id=user.id,
-            english_proficiency=form['english_proficiency'],
-            other_languages=form.get('other_languages')
-        )
-        db.session.add(language)
-
-        # Commit all
-        db.session.commit()
-
-        # Generate PDF
-        html = render_template("pdf_template.html", form=form)
-        pdf = BytesIO()
-        pisa.CreatePDF(html, dest=pdf)
-        pdf.seek(0)
-
-        # Send to recruiter
-        recruiter_msg = Message("New Application Submission",
-                                sender=app.config['MAIL_USERNAME'],
-                                recipients=["info.goldwingsaviation@gmail.com"],
-                                reply_to=form['primary_email'],
-                                body="A new application has been submitted.")
-        recruiter_msg.attach("application.pdf", "application/pdf", pdf.read())
-        mail.send(recruiter_msg)
-
-        # Send confirmation to applicant
-        user_msg = Message("Application Received",
-                           sender=app.config['MAIL_USERNAME'],
-                           recipients=[form['primary_email']],
-                           body="Thank you for submitting your application. We have received it.")
-        mail.send(user_msg)
-
-        flash("Application submitted successfully. Confirmation email sent.", "success")
-        return redirect(url_for('end'))
-
-    # Choices for the form
-    title_choices = ['Mr', 'Mrs', 'Miss', 'Ms', 'Dr']
-    gender_choices = ['Male', 'Female', 'Other']
-    citizenship_choices = ['Citizen', 'Permanent Resident', 'International']
-    qualification_choices = ['None', "Bachelor's", "Master's", 'Diploma']
-    english_proficiency_choices = ['Fluent', 'Intermediate', 'Basic']
-
-    return render_template("apply.html",
-                           page="Apply",
-                           title_choices=title_choices,
-                           gender_choices=gender_choices,
-                           citizenship_choices=citizenship_choices,
-                           qualification_choices=qualification_choices,
-                           english_proficiency_choices=english_proficiency_choices)
 
 @app.route('/end')
 def end():

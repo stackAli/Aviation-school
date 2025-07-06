@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  body {
+    background-color: #05094d;
+    color: #e5bd2c;
+    font-family: Arial, sans-serif;
+  }
+
+  .pricing-section {
+    max-width: 900px;
+    margin: 60px auto;
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    color: #05094d;
+  }
+
+  .pricing-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #e5bd2c;
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .pricing-table th, .pricing-table td {
+    padding: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    text-align: left;
+    font-size: 1.2rem;
+  }
+
+  .pricing-table th {
+    background-color: #05094d;
+    color: #e5bd2c;
+  }
+
+  .price {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #05094d;
+  }
+
+  .note {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  @media (max-width: 576px) {
+    .pricing-title {
+      font-size: 2rem;
+    }
+
+    .pricing-table th, .pricing-table td {
+      font-size: 1rem;
+      padding: 12px;
+    }
+  }
+</style>
+
+<section class="pricing-section container" aria-label="Course Pricing">
+  <h1 class="pricing-title">Course Pricing</h1>
+  
+  <table class="pricing-table" aria-describedby="pricing-description">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Duration</th>
+        <th>Price (AUD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Private Pilot License (PPL)</td>
+        <td>3 - 6 months</td>
+        <td class="price">$15,000</td>
+      </tr>
+      <tr>
+        <td>Recreational Pilot License (RPL)</td>
+        <td>1 - 3 months</td>
+        <td class="price">$8,500</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <p id="pricing-description" class="note">
+    * Prices include all ground school materials, instructor fees, and simulator sessions.<br>
+    * Additional fees may apply for flight test and licensing.
+  </p>
+</section>
+
+{% endblock %}
