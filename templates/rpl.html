@@ -13,25 +13,20 @@
   </section>
 </header>
 
-<!-- Tagline Below Header -->
-
-
 <!-- Section 1: What is RPL -->
 <section class="cpl-section py-5">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6">
-       
-        <p class=" fs-5">
+        <p class="fs-5">
           The Recreational Pilot Licence (RPL) is the ideal entry point for aspiring pilots in Australia. Issued by the Civil Aviation Safety Authority (CASA), the RPL allows you to fly light, single-engine aircraft as pilot in command—without supervision—within 25 nautical miles of your departure aerodrome.
-
         </p>
-        <p class=" fs-5">
+        <p class="fs-5">
           Whether you're flying for fun or building toward a career, the RPL is your launchpad into aviation.
-       
+        </p>
       </div>
-      <div class="col-md-6 text-center" >
-        <img src="{{ url_for('static', filename='b6.jpg') }}" alt="Flight training for RPL licence" class="img-fluid rounded-4 shadow" style="height: 60vh;">
+      <div class="col-md-6 text-center">
+        <img src="{{ url_for('static', filename='b6.jpg') }}" alt="Flight training for RPL licence" class="img-fluid rpl-img-1 rounded-4 shadow">
       </div>
     </div>
   </div>
@@ -41,14 +36,9 @@
 <section class="py-5" style="background-color: #05094d; color: white;">
   <div class="container">
     <div class="row align-items-center">
-      
-      <!-- Image -->
-      <div class="col-md-6 mb-4 mb-md-0 text-center" >
-         <img src="{{ url_for('static', filename='rpl2.jpg') }}" alt="Requirements to qualify for RPL" class="img-fluid" style="height: 70vh; border-radius: 10px;">
+      <div class="col-md-6 mb-4 mb-md-0 text-center">
+         <img src="{{ url_for('static', filename='rpl2.jpg') }}" alt="Requirements to qualify for RPL" class="img-fluid rpl-img-2" style="border-radius: 10px;">
       </div>
-
-      
-      <!-- Text Content -->
       <div class="col-md-6">
         <h2 class="fw-bold mb-4">To qualify, you must:</h2>
         <ul class="fs-5 text-white">
@@ -62,11 +52,9 @@
           The Recreational Pilots License at Moorabbin Airport includes endorsements for controlled airspace and aerodrome operations, and radio use.
         </p>
       </div>
-
     </div>
   </div>
 </section>
-
 
 <!-- CTA Apply Section -->
 <section class="apply-section position-relative text-center d-flex align-items-center">
@@ -74,9 +62,8 @@
   <div class="container position-relative content-wrapper">
     <div class="bg-white text-dark p-5 rounded-4 shadow mx-auto content-box">
       <h2 class="fw-bold mb-3" style="color: #05094d;">Ready to Start Flying?</h2>
-      <p class="mb-4 fs-5"style="color: #05094d;">Get in touch with our instructors to learn how the RPL can launch your aviation journey.</p>
+      <p class="mb-4 fs-5" style="color: #05094d;">Get in touch with our instructors to learn how the RPL can launch your aviation journey.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-      
         <a href="/contact" class="btn btn-outline-dark px-4">Contact Us</a>
       </div>
     </div>
@@ -85,9 +72,10 @@
 
 <!-- Styles -->
 <style>
-  body{
+  body {
     background-color: #05094d;
   }
+
   .apply-section {
     background-image: url('{{ url_for("static", filename="q1.jpg") }}');
     background-size: cover;
@@ -114,29 +102,24 @@
   }
 
   .hero-section {
-  margin-top: 10px;
-  width: 85%;
-  height: 70vh;
-  margin: 0 auto;
-  padding-top: 56px;
-
-  background-color: #05094d;
-  background-image: url('{{ url_for("static", filename="cpl1.jpg") }}');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  overflow: hidden;
-}
-  h2, h3, h4, h5, h6 {
-    color: rgb(229, 189, 44) !important;
-    font-weight: 700 !important;
+    margin-top: 10px;
+    width: 85%;
+    height: 70vh;
+    margin: 0 auto;
+    padding-top: 56px;
+    background-color: #05094d;
+    background-image: url('{{ url_for("static", filename="cpl1.jpg") }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
   }
+
   .hero-text {
     background-color: rgba(237, 233, 233, 0.6);
     max-width: 600px;
@@ -145,13 +128,45 @@
     color: #05094d;
   }
 
-  @media (max-width: 576px) {
-    
+  /* Desktop image sizes */
+  .rpl-img-1 {
+    height: 60vh;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .rpl-img-2 {
+    height: 70vh;
+    width: auto;
+    max-width: 100%;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: rgb(229, 189, 44) !important;
+    font-weight: 700 !important;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 991.98px) { /* Tablet and below */
+    .rpl-img-1,
+    .rpl-img-2 {
+      height: auto; /* reset fixed height */
+      max-width: 80%;
+    }
+  }
+
+  @media (max-width: 576px) { /* Mobile */
     .hero-section {
-      height: 35vh; /* Decreased height on mobile */
+      height: 35vh;
+      width: 95%;
     }
     .hero-text {
       display: none !important;
+    }
+    .rpl-img-1,
+    .rpl-img-2 {
+      max-width: 100%;
+      height: auto;
     }
   }
 </style>
