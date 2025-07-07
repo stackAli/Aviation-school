@@ -242,14 +242,35 @@
 }
 
 
-  @media (max-width: 576px) {
-    .hero-section {
-      height: 75vh; /* Decreased height on mobile */
-    }
-    .hero-text {
-      display: none !important;
-    }
+ @media (max-width: 576px) {
+  .hero-section {
+    height: 75vh; /* Decreased height on mobile */
+    position: relative;
   }
+
+  .hero-text {
+    display: block !important;
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    margin: 0;
+    background-color: rgba(5, 9, 77, 0.8);
+    padding: 15px;
+    max-height: 50vh;
+    max-width: unset;
+    font-size: 0.9rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
 
   
 </style>
