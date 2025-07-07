@@ -26,7 +26,7 @@
         </p>
       </div>
       <div class="col-md-6 text-center">
-        <img src="/static/ppl1.jpg" alt="Student pilot receiving PPL training" class="img-fluid rounded-4 shadow" style="max-width: 100%;">
+        <img src="/static/ppl1.jpg" alt="Student pilot receiving PPL training" class="img-fluid rounded-4 shadow" style="max-width: 100%;height: 60vh;">
       </div>
     </div>
   </div>
@@ -75,8 +75,11 @@
 
 <!-- Styles -->
 <style>
+  body{
+    background-color: #05094d;
+  }
   .apply-section {
-    background-image: url('{{ url_for("static", filename="cpl3.jpg") }}');
+    background-image: url('{{ url_for("static", filename="q1.jpg") }}');
     background-size: cover;
     background-position: center;
     min-height: 90vh;
@@ -95,14 +98,26 @@
     max-width: 600px;
   }
 
-  .hero-section {
-    background-image: url('{{ url_for("static", filename="cpl1.jpg") }}');
-    background-size: cover;
-    background-position: center;
-    height: calc(100vh - 56px);
-    width: 100%;
-    padding-top: 56px;
-  }
+    .hero-section {
+  margin-top: 10px;
+  width: 85%;
+  height: 70vh;
+  margin: 0 auto;
+  padding-top: 56px;
+
+  background-color: #05094d;
+  background-image: url('{{ url_for("static", filename="cpl1.jpg") }}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
 
   .hero-text {
     background-color: rgba(237, 233, 233, 0.6);
