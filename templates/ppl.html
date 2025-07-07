@@ -155,19 +155,32 @@
 
   /* Responsive for mobiles */
   @media (max-width: 576px) {
-    .hero-section {
-      height: 35vh;
-      width: 95%;
-    }
-    .hero-text {
-      display: none !important;
-    }
-    .ppl-img-1,
-    .ppl-img-2 {
-      max-width: 100%;
-      height: auto;
-    }
+  .hero-section {
+    height: 40vh;
+    width: 95%;
   }
+
+  .hero-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(237, 233, 233, 0.5); /* slightly more opacity */
+    font-size: 0.9rem;
+    max-width: unset;
+  }
+
+  .hero-text h1 {
+    font-size: 1.1rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+}
+
 </style>
 
 {% endblock %}
