@@ -6,7 +6,7 @@
   <section class="hero-section d-flex align-items-center">
     <div class="container-fluid px-5">
       <div class="hero-text text-start p-4 rounded shadow">
-        <h1 class="display-4 fw-bold fs-2 " style="color: #05094d;">Private Pilot Licence (PPL) -</h1>
+        <h1 class="display-4 fw-bold fs-2" style="color: #05094d;">Private Pilot Licence (PPL) -</h1>
         <p class="lead fw-medium" style="color: #05094d;">Expanding Your Horizons</p>
       </div>
     </div>
@@ -26,7 +26,7 @@
         </p>
       </div>
       <div class="col-md-6 text-center">
-        <img src="/static/ppl1.jpg" alt="Student pilot receiving PPL training" class="img-fluid rounded-4 shadow" style="max-width: 100%;height: 60vh;">
+        <img src="/static/ppl1.jpg" alt="Student pilot receiving PPL training" class="img-fluid ppl-img-1 rounded-4 shadow">
       </div>
     </div>
   </div>
@@ -36,8 +36,8 @@
 <section class="py-5" style="background-color: #05094d; color: white;">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="{{ url_for('static', filename='ppl5.jpeg') }}" alt="Checklist for PPL eligibility" class="img-fluid rounded shadow">
+      <div class="col-md-6 mb-4 mb-md-0 text-center">
+        <img src="{{ url_for('static', filename='ppl5.jpeg') }}" alt="Checklist for PPL eligibility" class="img-fluid ppl-img-2 rounded shadow">
       </div>
       <div class="col-md-6">
         <h2 class="fw-bold mb-4">To qualify, you must:</h2>
@@ -75,9 +75,10 @@
 
 <!-- Styles -->
 <style>
-  body{
+  body {
     background-color: #05094d;
   }
+
   .apply-section {
     background-image: url('{{ url_for("static", filename="q1.jpg") }}');
     background-size: cover;
@@ -98,32 +99,44 @@
     max-width: 600px;
   }
 
-    .hero-section {
-  margin-top: 10px;
-  width: 85%;
-  height: 70vh;
-  margin: 0 auto;
-  padding-top: 56px;
-
-  background-color: #05094d;
-  background-image: url('{{ url_for("static", filename="cpl1.jpg") }}');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  overflow: hidden;
-}
+  .hero-section {
+    margin-top: 10px;
+    width: 85%;
+    height: 70vh;
+    margin: 0 auto;
+    padding-top: 56px;
+    background-color: #05094d;
+    background-image: url('{{ url_for("static", filename="cpl1.jpg") }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+  }
 
   .hero-text {
     background-color: rgba(237, 233, 233, 0.6);
     max-width: 600px;
     margin-left: auto;
     margin-top: 150px;
+    color: #05094d;
+  }
+
+  /* Desktop image fixed sizes */
+  .ppl-img-1 {
+    height: 60vh;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .ppl-img-2 {
+    height: 70vh;
+    width: auto;
+    max-width: 100%;
   }
 
   h2, h3, h4, h5, h6 {
@@ -131,13 +144,28 @@
     font-weight: 700 !important;
   }
 
+  /* Responsive for tablets and smaller */
+  @media (max-width: 991.98px) {
+    .ppl-img-1,
+    .ppl-img-2 {
+      height: auto; /* Remove fixed height */
+      max-width: 80%;
+    }
+  }
+
+  /* Responsive for mobiles */
   @media (max-width: 576px) {
     .hero-section {
       height: 35vh;
+      width: 95%;
     }
-
     .hero-text {
       display: none !important;
+    }
+    .ppl-img-1,
+    .ppl-img-2 {
+      max-width: 100%;
+      height: auto;
     }
   }
 </style>
