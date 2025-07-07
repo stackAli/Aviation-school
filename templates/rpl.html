@@ -30,8 +30,8 @@
           Whether you're flying for fun or building toward a career, the RPL is your launchpad into aviation.
        
       </div>
-      <div class="col-md-6 text-center">
-        <img src="{{ url_for('static', filename='rpl.jpg') }}" alt="Flight training for RPL licence" class="img-fluid rounded-4 shadow">
+      <div class="col-md-6 text-center" >
+        <img src="{{ url_for('static', filename='b6.jpg') }}" alt="Flight training for RPL licence" class="img-fluid rounded-4 shadow" style="height: 60vh;">
       </div>
     </div>
   </div>
@@ -43,9 +43,10 @@
     <div class="row align-items-center">
       
       <!-- Image -->
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="{{ url_for('static', filename='rpl2.jpg') }}" alt="Requirements to qualify for RPL" class="img-fluid rounded shadow">
+      <div class="col-md-6 mb-4 mb-md-0 text-center" >
+         <img src="{{ url_for('static', filename='rpl2.jpg') }}" alt="Requirements to qualify for RPL" class="img-fluid" style="height: 70vh; border-radius: 10px;">
       </div>
+
       
       <!-- Text Content -->
       <div class="col-md-6">
@@ -84,8 +85,11 @@
 
 <!-- Styles -->
 <style>
+  body{
+    background-color: #05094d;
+  }
   .apply-section {
-    background-image: url('{{ url_for("static", filename="cpl3.jpg") }}');
+    background-image: url('{{ url_for("static", filename="q1.jpg") }}');
     background-size: cover;
     background-position: center;
     min-height: 90vh;
@@ -110,13 +114,25 @@
   }
 
   .hero-section {
-    background-image: url('{{ url_for("static", filename="cpl1.jpg") }}');
-    background-size: cover;
-    background-position: center;
-    height: calc(100vh - 56px);
-    width: 100%;
-    padding-top: 56px;
-  }
+  margin-top: 10px;
+  width: 85%;
+  height: 70vh;
+  margin: 0 auto;
+  padding-top: 56px;
+
+  background-color: #05094d;
+  background-image: url('{{ url_for("static", filename="cpl1.jpg") }}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
   h2, h3, h4, h5, h6 {
     color: rgb(229, 189, 44) !important;
     font-weight: 700 !important;
