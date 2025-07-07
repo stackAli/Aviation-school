@@ -1,54 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- ✈️ Custom Styles for Courses Section -->
 <style>
   .course-card {
     height: 300px;
     background-size: cover;
     background-position: center;
-    transition: transform 0.3s ease;
+    position: relative;
     cursor: pointer;
+    color: white;
   }
 
-  .course-card:hover {
-    transform: scale(1.03);
-  }
-  h1,h2, h3, h4, h5, h6 {
-    color: rgb(229, 189, 44) !important;
-    font-weight: 700 !important;
-  }
   .overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.65);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  .course-card:hover .overlay {
-    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6); /* Always visible dark overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
   }
 
   .courses-section {
-   
     background-color: #05094d;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(229, 189, 44) !important;
+    font-weight: 700 !important;
+  }
 </style>
-
-
 
 <!-- 💼 Courses Section -->
 <section class="courses-section py-5">
   <div class="container">
-    <h2 class="text-center mb-5 fw-bold display-5 ">Our Courses</h2>
+    <h2 class="text-center mb-5 fw-bold display-5">Our Courses</h2>
     <div class="row g-4 justify-content-center">
-
-  
 
       <!-- RPL Course -->
       <div class="col-md-6 col-lg-5">
-        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/rpl3.jpg');">
-          <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
+        <div class="course-card rounded-4 shadow" style="background-image: url('/static/rpl3.jpg');">
+          <div class="overlay">
             <h4 class="text-white fw-bold">Recreational Pilot Licence (RPL)</h4>
             <p class="text-light px-3">Fly for leisure with certified skills and explore the skies on your own terms.</p>
             <a href="/rpl" class="btn btn-light btn-sm mt-2">Learn More</a>
@@ -58,8 +53,8 @@
 
       <!-- PPL Course -->
       <div class="col-md-6 col-lg-5">
-        <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/ppl4.jpg');">
-          <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
+        <div class="course-card rounded-4 shadow" style="background-image: url('/static/ppl4.jpg');">
+          <div class="overlay">
             <h4 class="text-white fw-bold">Private Pilot Licence (PPL)</h4>
             <p class="text-light px-3">Earn your wings with the Private Pilot Licence (PPL) — your gateway to flying for fun, travel, or future aviation pursuits.</p>
             <a href="/ppl" class="btn btn-light btn-sm mt-2">Learn More</a>
