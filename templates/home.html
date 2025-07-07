@@ -60,6 +60,7 @@
 
 
 <!-- ✈️ Our Courses Section -->
+<!-- ✈️ Our Courses Section -->
 <section class="courses-section py-5" aria-label="Flight Training Courses">
   <div class="container">
     <h2 class="text-center mb-5 fw-bold display-5 " style="color: rgb(229, 189, 44);">Our Courses</h2>
@@ -68,9 +69,9 @@
       <!-- RPL Course -->
       <div class="col-md-6 col-lg-5 scroll-popup">
         <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/rpl3.jpg');">
-          <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
-            <h4 class="text-white fw-bold">Recreational Pilot License (RPL)</h4>
-            <p class="text-light px-3">Fly for leisure with certified skills and explore the skies on your own terms.</p>
+          <div class="overlay always-visible text-white text-center d-flex flex-column justify-content-center align-items-center px-3">
+            <h4 class="fw-bold" style="color: white;">Recreational Pilot License (RPL)</h4>
+            <p>Fly for leisure with certified skills and explore the skies on your own terms.</p>
             <a href="/rpl" class="btn btn-light btn-sm mt-2">Learn More</a>
           </div>
         </div>
@@ -79,9 +80,9 @@
       <!-- PPL Course -->
       <div class="col-md-6 col-lg-5 scroll-popup">
         <div class="course-card position-relative overflow-hidden rounded-4 shadow" style="background-image: url('/static/ppl4.jpg');">
-          <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
-            <h4 class="text-white fw-bold">Private Pilot License (PPL)</h4>
-            <p class="text-light px-3">Earn your wings — fly for fun, travel, or future aviation pursuits.</p>
+          <div class="overlay always-visible text-white text-center d-flex flex-column justify-content-center align-items-center px-3">
+            <h4 class="fw-bold" style="color: white;">Private Pilot License (PPL)</h4>
+            <p>Earn your wings — fly for fun, travel, or future aviation pursuits.</p>
             <a href="/ppl" class="btn btn-light btn-sm mt-2">Learn More</a>
           </div>
         </div>
@@ -90,6 +91,40 @@
     </div>
   </div>
 </section>
+
+<!-- ✈️ Updated Course Card Styles -->
+<style>
+  .courses-section {
+    background-color: #05094d;
+  }
+
+  .course-card {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .course-card:hover {
+    transform: scale(1.03);
+  }
+
+  .overlay.always-visible {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55); /* slightly transparent black background */
+    opacity: 1 !important;
+    padding: 20px;
+  }
+
+  .overlay h4, .overlay p {
+    color: white;
+    margin-bottom: 10px;
+  }
+</style>
+
 
 <!-- ✈️ Gallery Section -->
 <section class="container py-5" aria-label="Flight School Gallery" sty>
@@ -181,7 +216,7 @@
 
 <!-- ✈️ Custom Styles -->
 <style>
-   h1,h2, h3, h4, h5, h6 {
+   h1,h2, h3, h5, h6 {
     color: rgb(214, 187, 42) !important;
     font-weight: 700 !important;
   }
@@ -209,33 +244,7 @@
 }
 
 
-  .courses-section {
-    background-color: #05094d;
-  }
-
-  .course-card {
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-
-  .course-card:hover {
-    transform: scale(1.03);
-  }
-
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.65);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  .course-card:hover .overlay {
-    opacity: 1;
-  }
+  
 
  /* Scroll popup animation (slower) */
 .scroll-popup {
