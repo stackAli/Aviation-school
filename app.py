@@ -4,6 +4,9 @@ from models import db, UserProfile, EducationDetail, LanguageSkill, User
 from datetime import datetime
 from io import BytesIO
 from xhtml2pdf import pisa
+from dotenv import load_dotenv
+import os
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -11,13 +14,19 @@ app.secret_key = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Mail Configuration
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+
+
+load_dotenv()  # Load environment variables from .env
+
+app.config['MAIL_SERVER'] = 'smtp.office365.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'info@goldwingsaviation.com.au'
-app.config['MAIL_PASSWORD'] = 'bclh ncrq aawi rme'
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+
 mail = Mail(app)
+
 
 # Init DB
 db.init_app(app)
@@ -46,14 +55,14 @@ def contact():
 
         msg = Message(subject="New Contact Query",
                       sender=app.config['MAIL_USERNAME'],
-                      recipients=['info.goldwingsaviation@gmail.com'])
+                      recipients=['info@goldwingsaviation.com.au'])
         msg.body = f"You have received a new contact message:\n\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
         mail.send(msg)
 
         flash("Your message has been sent successfully!", "success")
         return redirect(url_for('contact'))
 
-    return render_template("contact.html", page="Contact")
+    return render_template("end.html", page="Contact")
 
 @app.route('/rpl')
 def rpl():
