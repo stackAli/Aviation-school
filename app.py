@@ -62,7 +62,7 @@ def contact():
         mail.send(msg)
 
         flash("Your message has been sent successfully!", "success")
-        return redirect(url_for('contact'))
+        return redirect(url_for('end'))
 
     return render_template("contact.html", page="Contact")
 
