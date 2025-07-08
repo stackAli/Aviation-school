@@ -54,16 +54,16 @@ def contact():
 
         msg = Message(
             subject="New Contact Query",
-            sender=app.config['MAIL_USERNAME'],
+            sender=app.config['MAIL_USERNAME'],  # ✅ Explicitly set sender here
             recipients=['info@goldwingsaviation.com.au']
         )
         msg.body = f"You have received a new contact message:\n\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
+        
         mail.send(msg)
 
         flash("Your message has been sent successfully!", "success")
         return redirect(url_for('contact'))
 
-    # For GET request, render the contact form page
     return render_template("contact.html", page="Contact")
 
 @app.route('/rpl')
