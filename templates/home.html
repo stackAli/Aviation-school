@@ -261,18 +261,20 @@
 }
 
 
-@media (max-width: 576px) {
+ @media (max-width: 576px) {
   .hero-section {
-    height: 75vh; /* keep mobile height */
-    position: relative; /* required for absolute child positioning */
+    height: 75vh; /* Decreased height on mobile */
+    position: relative;
   }
 
   .hero-text {
+    display: block !important;
     position: absolute;
+    
     left: 15px;
     right: 15px;
-    bottom: 10px;   /* ✅ Stick to bottom with 10px gap */
-    margin: 0;      /* reset top margin */
+    margin-top: 70px;
+    margin-bottom: -100px;
     background-color: rgba(5, 9, 77, 0.6);
     padding: 15px;
     max-height: 50vh;
@@ -288,30 +290,28 @@
     font-size: 0.9rem;
     line-height: 1.4;
   }
-
   .aviation-dream-section .lead {
-    font-size: 1rem;
-    line-height: 1.2;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+      font-size: 1rem;
+      line-height: 1.2;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
 
-  .aviation-dream-section .text-center {
-    text-align: center !important;
-  }
+    .aviation-dream-section .text-center {
+      text-align: center !important;
+    }
 
-  .aviation-dream-section .fw-medium {
-    font-weight: 500;
-  }
+    .aviation-dream-section .fw-medium {
+      font-weight: 500;
+    }
 
-  .aviation-dream-section {
-    margin-top: 20px;
-    margin-bottom: -30px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
+    .aviation-dream-section {
+      margin-top: 20px;
+      margin-bottom: -30px;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
 }
-
 
   
 </style>
