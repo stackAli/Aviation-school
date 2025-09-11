@@ -22,7 +22,7 @@ app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = 'info@goldwingsaviation.com.au'          # Your email
-app.config['MAIL_PASSWORD'] = 'Flying2024'             # Your password or app password
+app.config['MAIL_PASSWORD'] = 'Almasg@2025'             # Your password or app password
 app.config['MAIL_DEFAULT_SENDER'] = 'info@goldwingsaviation.com.au'  
 
 mail = Mail(app)
