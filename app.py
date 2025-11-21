@@ -4,8 +4,11 @@ from models import db, UserProfile, EducationDetail, LanguageSkill, User
 from datetime import datetime
 from io import BytesIO
 from xhtml2pdf import pisa
+from dotenv import load_dotenv
+import os
 
-
+# Load environment variables from .env
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -13,17 +16,19 @@ app.secret_key = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-
-
-
-
+# Secure email configuration
 app.config['MAIL_SERVER'] = 'smtp.office365.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'info@goldwingsaviation.com.au'          # Your email
-app.config['MAIL_PASSWORD'] = 'Almasg@2025'             # Your password or app password
-app.config['MAIL_DEFAULT_SENDER'] = 'info@goldwingsaviation.com.au'  
+
+# Load values from environment variables
+app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")       # email
+app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")       # app password
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_USERNAME") # default sender
+
+mail = Mail(app)
+
 
 mail = Mail(app)
 
