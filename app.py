@@ -4,7 +4,7 @@ from models import db, UserProfile, EducationDetail, LanguageSkill, User
 from datetime import datetime
 from io import BytesIO
 from xhtml2pdf import pisa
-
+from flask import send_from_directory
 
 
 app = Flask(__name__)
@@ -32,6 +32,15 @@ mail = Mail(app)
 
 # Init DB
 db.init_app(app)
+
+
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory('static', 'robots.txt')
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    return send_from_directory('static', 'sitemap.xml')
 
 @app.route('/')
 def home():
