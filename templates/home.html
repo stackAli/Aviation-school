@@ -1,11 +1,19 @@
 {% extends "base.html" %}
+{% block head %}
+<title>Flight School Moorabbin | Goldwings Aviation</title>
+<meta name="description" content="Learn to fly at Moorabbin Airport with Goldwings Aviation. RPL, PPL and Trial Introductory Flights with experienced instructors. Safe, professional and personalised flight training in Melbourne.">
+<meta name="keywords" content="flight school Moorabbin, pilot training Moorabbin Airport, learn to fly Melbourne, RPL Melbourne, PPL Melbourne">
+<meta property="og:title" content="Flight School Moorabbin | Goldwings Aviation">
+<meta property="og:description" content="Learn to fly at Moorabbin Airport with RPL, PPL and TIF training from experienced instructors. Personalized and professional flight training in Melbourne.">
+
+{% endblock %}
 {% block content %}
 
 <!-- ✈️ Hero Section -->
 <header>
   <section class="hero-section d-flex align-items-center text-white" aria-label="Aviation Hero Banner">
     <div class="container-fluid px-5">
-      <div class="hero-text text-start p-3 rounded shadow">
+      <div id="hero-text" class="hero-text text-start p-3 rounded shadow">
         <h1 class="display-4 fw-bold fs-5">What’s Your Aviation Dream?</h1>
         <p class="lead fw-light">
           Is it the thrill of your first takeoff?<br>
