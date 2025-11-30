@@ -1,20 +1,52 @@
 {% extends "base.html" %}
 {% block head %}
 <title>Flight School Moorabbin | Goldwings Aviation</title>
-<meta name="description" content="Learn to fly at Moorabbin Airport with Goldwings Aviation. RPL, PPL and Trial Introductory Flights with experienced instructors. Safe, professional and personalised flight training in Melbourne.">
+<meta name="description" content="Learn to fly at Moorabbin Airport with Goldwings Aviation. RPL and PPL with experienced instructors. Safe, professional and personalised flight training in Melbourne.">
 <meta name="keywords" content="flight school Moorabbin, pilot training Moorabbin Airport, learn to fly Melbourne, RPL Melbourne, PPL Melbourne">
 <meta property="og:title" content="Flight School Moorabbin | Goldwings Aviation">
-<meta property="og:description" content="Learn to fly at Moorabbin Airport with RPL, PPL and TIF training from experienced instructors. Personalized and professional flight training in Melbourne.">
+<meta property="og:description" content="Learn to fly at Moorabbin Airport with RPL and PPL  from experienced instructors. Personalized and professional flight training in Melbourne.">
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Why choose Moorabbin Airport for flight training?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Moorabbin Airport is one of Melbourne’s busiest controlled-airspace airports with multiple runways and active air traffic. Training here gives students real-world experience in radio communication, takeoffs, landings, and busy airspace much closer to professional flying conditions than quiet, small airfields."
+    }
+  },{
+    "@type": "Question",
+    "name": "What pilot licenses and training programs does Goldwings offer?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Goldwings provides training for both the Recreational Pilot License (RPL) and the Private Pilot License (PPL). These are fully recognized licenses under Australian aviation regulations, with structured ground-school + flight training ideal whether you want to fly recreationally or build toward a professional aviation career."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can someone with no previous flying experience join Goldwings and start training?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Goldwings welcomes beginners. Our courses are designed to take you from zero experience through theory, dual-instruction flights, and solo training (when ready), guiding you step by step until you obtain your license."
+    }
+  }]
+}
+</script>
 {% endblock %}
 {% block content %}
 
+
+</style>
 <!-- ✈️ Hero Section -->
 <header>
   <section class="hero-section d-flex align-items-center text-white" aria-label="Flight school in Moorabbin Airport with pilots learning to fly at Moorabbin Airport Melbourne">
     <div class="container-fluid px-5">
       <div id="hero-text" class="hero-text text-start p-3 rounded shadow">
-        <h1 class="display-4 fw-bold fs-5">What’s Your Aviation Dream?</h1>
+        <h2 class="hero-main-heading fw-bold" style="font-size: 1.2rem;">What’s Your Aviation Dream?</h2>
+
         <p class="lead fw-light">
           Is it the thrill of your first takeoff?<br>
           The pride of flying solo?<br>
@@ -28,7 +60,7 @@
 </header>
 
 <!-- ✈️ Aviation Dream Section -->
-<section class="aviation-dream-section py-5 bg-light " aria-label="Flight school in Moorabbin Airport with pilots learning to fly at Moorabbin Airport Melbourne">
+<section class="aviation-dream-section py-5 bg-light " aria-label="Aviation Dreams" >
   <div class="container" >
     <div class="row justify-content-center">
       <div class="col-lg-10 text-center scroll-popup">
@@ -67,7 +99,7 @@
 
 
 <!-- ✈️ Our Courses Section -->
-<section class="courses-section py-5" aria-label="Flight school in Moorabbin Airport with pilots learning to fly at Moorabbin Airport Melbourne">
+<section class="courses-section py-5" aria-label="Flight Training Courses">
   <div class="container">
     <h2 class="text-center mb-5 fw-bold display-5 " style="color: rgb(229, 189, 44);">Our Courses</h2>
     <div class="row g-4 justify-content-center">
@@ -133,9 +165,100 @@
   
 </style>
 
+<section class="flight-school-section" aria-label="Flight school in Moorabbin Airport with pilots learning to fly at Moorabbin Airport Melbourne">
 
+  <div class="container">
+    <h1 class="fw-bold display-6 text-center" style="color:#05094d;">
+      Flight School in Moorabbin – Learn to Fly with Goldwings Aviation
+    </h1>
+
+    <p class="text-center mt-3 lead" style="color:#05094d;">
+      Goldwings Aviation is a dedicated flight school in Moorabbin,
+      offering professional pilot training at <strong>Moorabbin Airport (YMMB)</strong>.
+      Whether you're beginning your aviation journey,
+      or progressing towards your <strong>RPL</strong> or <strong>PPL</strong>,
+      our instructors provide safe, personalised training to help you achieve your aviation goals.
+    </p>
+
+    <p class="text-center" style="color:#05094d;">
+      Train in the heart of Melbourne’s general aviation hub,
+      with real traffic, real radio operations, and practical flying experience every day.
+    </p>
+
+    <div class="text-center mt-4">
+      <a href="/contact" class="btn btn-warning fw-bold px-4">Contact Us Now</a>
+    </div>
+  </div>
+
+</section>
+<style>
+  /* ✈️ FLIGHT SCHOOL MAIN SEO SECTION — PROFESSIONAL STYLE */
+.flight-school-section {
+  background: #ffffff;
+  padding: 60px 0;
+  text-align: center;
+  border-top: 2px solid #e5bd2c;
+  border-bottom: 2px solid #e5bd2c;
+}
+
+.flight-school-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #05094d; /* Navy brand color */
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.flight-school-section p {
+  max-width: 820px;
+  margin: 0 auto 12px;
+  color: #1a1e36;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.flight-school-section strong {
+  color: #05094d;
+  font-weight: 700;
+}
+
+.flight-school-section .btn {
+  display: inline-block;
+  margin-top: 18px;
+  background-color: #e5bd2c;
+  color: #05094d;
+  border-radius: 6px;
+  padding: 10px 26px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.flight-school-section .btn:hover {
+  background-color: #fff;
+  color: #05094d;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+/* 🎯 Responsive refinement */
+@media (max-width: 576px) {
+  .flight-school-section {
+    padding: 40px 15px;
+  }
+
+  .flight-school-section h1 {
+    font-size: 1.4rem;
+  }
+
+  .flight-school-section p {
+    font-size: 0.95rem;
+  }
+}
+
+</style>
 <!-- ✈️ Gallery Section -->
-<section class="container py-5" aria-label="Flight school in Moorabbin Airport with pilots learning to fly at Moorabbin Airport Melbourne">
+<section class="container py-5" aria-label="Flight School Gallery" sty>
   <div class="position-relative">
 
     <!-- Slider Image -->
@@ -252,9 +375,7 @@
   padding: 10px;
   
 }
-.hero-text h1 {
-    font-size: 0.5rem; /* reduce heading */
-  }
+
 
   .hero-text p {
     font-size: 0.8rem; /* reduce paragraph text */
