@@ -95,10 +95,22 @@ def ppl():
 def end():
     return render_template('end.html')
 
+@app.route("/blog/pilot-training-cost-melbourne")
+def pilot_training_cost():
+    return render_template("training-cost.html")
 
 @app.route('/mission')
 def mission():
     return render_template('mission.html', page="Our Mission")
+@app.route('/blog')
+def blog():
+    return render_template('blog.html', page="Our Blog")
+@app.route('/blog/rpl-vs-ppl')
+def rpl_vs_ppl():
+    return render_template('rpl-vs-ppl-melbourne.html')
+@app.route('/blog/flight-school-moorabbin')
+def flight_school_moorabbin():
+    return render_template('flight-school-moorabbin.html')
 
 @app.route('/values')
 def values():

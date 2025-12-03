@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Pilot Guides | Learn to Fly in Melbourne | Goldwings Aviation</title>
+<meta name="description" content="Aviation learning hub. Articles and guides about pilot training, RPL vs PPL, Moorabbin flight school, training costs, and aviation career tips in Melbourne.">
+<meta name="keywords" content="pilot training melbourne, flight school guides, RPL PPL articles, Moorabbin aviation blog">
+{% endblock %}
+
+{% block content %}
+
+<section class="pilot-guides-hero d-flex align-items-center text-center text-white">
+  <div class="container">
+    <h1 class="fw-bold display-5">Pilot Guides & Flight Training Articles</h1>
+    <p class="mt-3 lead">
+      Aviation knowledge from real instructors. Learn everything about flight training in Melbourne and Moorabbin Airport.
+    </p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Article Card 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="guide-card shadow-sm rounded-4">
+          <img src="/static/b3.jpg" class="img-fluid rounded-top" alt="Pilot training cost Melbourne">
+          <div class="p-3">
+            <h3 class="guide-title"><a href="/blog/pilot-training-cost-melbourne">Pilot Training Cost in Melbourne</a></h3>
+            <p>Understand what shapes flight training expenses at Moorabbin Airport.</p>
+            <a href="/blog/pilot-training-cost-melbourne" class="btn btn-dark btn-sm mt-2">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article Card 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="guide-card shadow-sm rounded-4">
+          <img src="/static/ppl4.jpg" class="img-fluid rounded-top" alt="RPL vs PPL Melbourne">
+          <div class="p-3">
+            <h3 class="guide-title"><a href="/blog/rpl-vs-ppl">RPL vs PPL – Which License Should You Choose?</a></h3>
+            <p>Compare flight license types and choose the right aviation path.</p>
+            <a href="/blog/rpl-vs-ppl" class="btn btn-dark btn-sm mt-2">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article Card 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="guide-card shadow-sm rounded-4">
+          <img src="/static/b6.jpg" class="img-fluid rounded-top" alt="Why train at Moorabbin Airport">
+          <div class="p-3">
+            <h3 class="guide-title"><a href="/blog/flight-school-moorabbin">Why Moorabbin Airport is the Best Place to Train</a></h3>
+            <p>Busy airspace, professional ops — real flying conditions.</p>
+            <a href="/blog/flight-school-moorabbin" class="btn btn-dark btn-sm mt-2">Read More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<style>
+/* Hero Section */
+.pilot-guides-hero {
+  padding: 100px 0;
+}
+
+.pilot-guides-hero h1,
+.guide-title a {
+  color: rgb(214, 187, 42) !important; /* Gold */
+}
+
+.pilot-guides-hero p {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* Container for guide cards */
+.row.g-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Guide Card */
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  height: 100%; /* make all cards equal height */
+}
+
+.guide-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+.guide-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Card content */
+.guide-card .p-3 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between; /* title top, button bottom */
+}
+
+.guide-title a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.guide-title a:hover {
+  opacity: 0.85;
+}
+
+/* Buttons */
+.btn-dark {
+  background-color: #05094d;
+  border: none;
+  font-weight: 600;
+}
+
+.btn-dark:hover {
+  background-color: #e5bd2c;
+  color: #05094d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .col-lg-4 {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 576px) {
+  .col-md-6 {
+    flex: 1 1 100%; /* 1 card per row */
+  }
+}
+</style>
+
+{% endblock %}
