@@ -1,11 +1,31 @@
 {% extends "base.html" %}
 {% block head %}
-<title>Flight School Moorabbin | Goldwings Aviation</title>
+<title>Pilot Training Melbourne | Goldwings Aviation</title>
 <meta name="description" content="Learn to fly at Moorabbin Airport with Goldwings Aviation. RPL and PPL with experienced instructors. Safe, professional and personalised flight training in Melbourne.">
-<meta name="keywords" content="flight school Moorabbin, pilot training Moorabbin Airport, learn to fly Melbourne, RPL Melbourne, PPL Melbourne">
-<meta property="og:title" content="Flight School Moorabbin | Goldwings Aviation">
-<meta property="og:description" content="Learn to fly at Moorabbin Airport with RPL and PPL  from experienced instructors. Personalized and professional flight training in Melbourne.">
+<meta name="keywords" content="pilot training Melbourne,flight school Moorabbin, pilot training Moorabbin Airport, learn to fly Melbourne, RPL Melbourne, PPL Melbourne">
+<meta property="og:title" content="Pilot Training Melbourne | Goldwings Aviation">
+<meta property="og:description" content="Learn to fly in Melbourne with RPL & PPL training at Moorabbin Airport. Professional flight school with personalised aviation training.">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "FlightSchool",
+  "name": "Goldwings Aviation",
+  "description": "Pilot training in Melbourne including RPL and PPL at Moorabbin Airport.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Moorabbin Airport",
+    "addressLocality": "Melbourne",
+    "addressRegion": "VIC",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -37.975,
+    "longitude": 145.102
+  }
+}
+</script>
 
 <script type="application/ld+json">
 {
@@ -38,8 +58,203 @@
 {% endblock %}
 {% block content %}
 
+<!-- 🚀 Sliding Offer Overlay (50% Height) -->
+<!-- 🚀 Sliding Offer Overlay (50% Height) -->
+ 
+<div id="promoOverlay">
+  
+  <div class="promo-inner">
+    
 
+    <!-- Left Side Text -->
+    <div class="promo-left">
+      <h2 class="ph2">Limited Time Offer!</h2>
+      <p>Book Your First Flight Lesson for <strong> $199</strong> in a <strong>Cessna 172</strong>! <br>
+        Feel the horizon, experience the wind, and take your first step toward your aviation dream.</p>
+    </div>
+
+    <!-- Right Side Timer + Buttons -->
+    <div class="promo-right">
+      
+
+      <div class="promo-buttons">
+        <a href="/contact" class="promo-btn primary">Claim Offer</a>
+        <button class="promo-btn secondary" onclick="closePromo()">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<style>
+  /* MAIN OVERLAY */
+  #promoOverlay
+   {
+    position: absolute;          /* stays under navbar */
+    top: 15%;                   /* navbar height */
+    left: 0;
+    width: 100%;
+    height: 50vh;                /* 50% height */
+    background: #05094d;
+    z-index: 10;                 /* BELOW navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+  }
+  /* Make promo-inner a flex container */
+.promo-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 90%;
+  max-width: 1100px;
+  background-color: #e5bd2c;
+  padding: 35px 30px 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Left & Right each take 50% */
+.promo-left, .promo-right {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Optional: add padding inside left & right */
+.promo-left {
+  padding-right: 15px;
+}
+
+.promo-right {
+  padding-left: 15px;
+  text-align: center; /* center timer & buttons */
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 768px) {
+  .promo-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .promo-left, .promo-right {
+    flex: 1 1 100%;
+    padding: 0;
+  }
+}
+
+  /* When scrolling hides the overlay */
+  #promoOverlay.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+
+
+/* Make promo-inner relative so X stays inside it */
+.promo-inner {
+  position: relative;
+  background-color: #e5bd2c;
+  color: #05094d;
+  border-radius: 15px;
+  padding: 35px 30px 25px 30px; /* extra top padding for X */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  
+}
+
+ .ph2 {
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #05094d; /* solid navy */
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2); /* subtle shadow for opacity perception */
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+}
+
+  .promo-left p {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  #promoTimer {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .promo-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .promo-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  .promo-btn.primary {
+    background: #05094d;
+    color: white;
+  }
+
+  .promo-btn.secondary {
+    background: white;
+    color: #05094d;
+  }
+
+  @media (max-width: 768px) {
+    .promo-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
 </style>
+
+
+
+<script>
+  const overlay = document.getElementById("promoOverlay");
+
+  function closePromo() {
+    overlay.classList.add("hidden");
+  }
+
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const current = window.scrollY;
+
+    if (current > lastScroll) {
+      // scrolling DOWN → hide overlay under navbar
+      overlay.classList.add("hidden");
+    } 
+    else if (current === 0) {
+      // at the TOP → show again
+      overlay.classList.remove("hidden");
+    }
+
+    lastScroll = current;
+  });
+</script>
+
 <!-- ✈️ Hero Section -->
 <header>
   <section class="hero-section d-flex align-items-center text-white" aria-label="Flight school in Moorabbin Airport with pilots learning to fly at Moorabbin Airport Melbourne">
@@ -168,12 +383,12 @@
 <section class="flight-school-section" aria-label="Flight school in Moorabbin Airport with pilots learning to fly at Moorabbin Airport Melbourne">
 
   <div class="container">
-    <h1 class="fw-bold display-6 text-center" style="color:#05094d;">
-      Flight School in Moorabbin – Learn to Fly with Goldwings Aviation
+    <h1 class="fw-bold display-6 text-center" style="color:#e5bd2c;">
+      Flight School in Melbourne – Learn to Fly with Goldwings Aviation
     </h1>
 
     <p class="text-center mt-3 lead" style="color:#05094d;">
-      Goldwings Aviation is a dedicated flight school in Moorabbin,
+      Goldwings Aviation is a dedicated pilot school in <strong>Melbourne</strong> ,
       offering professional pilot training at <strong>Moorabbin Airport (YMMB)</strong>.
       Whether you're beginning your aviation journey,
       or progressing towards your <strong>RPL</strong> or <strong>PPL</strong>,
@@ -348,7 +563,7 @@
 <!-- ✈️ Custom Styles -->
 <style>
    h1,h2, h3, h5, h6 {
-    color: rgb(214, 187, 42) !important;
+    color: rgb(214, 187, 42) ;
     font-weight: 700 !important;
   }
   .hero-section {
