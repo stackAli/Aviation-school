@@ -99,6 +99,10 @@ def end():
 def pilot_training_cost():
     return render_template("training-cost.html")
 
+@app.route("/blog/Weather-Conditions-for-Flying-in-Melbourne")
+def weather():
+    return render_template("weather.html")
+
 @app.route('/mission')
 def mission():
     return render_template('mission.html', page="Our Mission")

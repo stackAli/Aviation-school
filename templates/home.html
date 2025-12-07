@@ -71,6 +71,8 @@
       <h2 class="ph2">Limited Time Offer!</h2>
       <p>Book Your First Flight Lesson for <strong> $199</strong> in a <strong>Cessna 172</strong>! <br>
         Feel the horizon, experience the wind, and take your first step toward your aviation dream.</p>
+
+
     </div>
 
     <!-- Right Side Timer + Buttons -->
@@ -80,7 +82,11 @@
       <div class="promo-buttons">
         <a href="/contact" class="promo-btn primary">Claim Offer</a>
         <button class="promo-btn secondary" onclick="closePromo()">Close</button>
+        
       </div>
+      <p id="ad-description" class="note">
+          * There’s no obligation—whether you decide to continue your aviation career or simply want to experience a flight lesson, the choice is yours.
+      </p>
     </div>
 
   </div>
@@ -89,6 +95,21 @@
 
 
 <style>
+  #ad-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;              /* soft grey for note text */
+  background: #f7f7f7;      /* light background highlight */
+  padding: 12px 16px;
+  border-left: 3px solid #0b3d91; /* aviation-blue accent */
+  border-radius: 6px;
+  margin-top: 12px;
+  
+}
+#ad-description .note {
+  display: block;
+}
+
   /* MAIN OVERLAY */
   #promoOverlay
    {
@@ -202,6 +223,8 @@
   }
 
   .promo-btn {
+    margin-top: 20px;
+    margin-bottom: 10px;
     padding: 10px 20px;
     border-radius: 8px;
     font-weight: 700;
