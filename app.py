@@ -115,6 +115,12 @@ def rpl_vs_ppl():
 @app.route('/blog/flight-school-moorabbin')
 def flight_school_moorabbin():
     return render_template('flight-school-moorabbin.html')
+@app.route("/blog/learn-to-fly-melbourne-vs-australia")
+def learn_to_fly_melbourne_vs_australia():
+    return render_template("learning-to-fly-melbourne-vs-australia.html")
+@app.route("/pilot-training-faq-melbourne")
+def pilot_training_faq_melbourne():
+    return render_template("pilot-training-faq-melbourne.html")
 
 @app.route('/values')
 def values():

@@ -144,6 +144,38 @@
       position: absolute;
       right: 1rem;
     }
+   /* NAVBAR MUST BE ABOVE OVERLAY */
+.navbar-custom {
+  position: relative;
+  z-index: 1000;
+}
+
+
+
+/* DROPDOWN */
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  color: #05094d;
+  background-color: #e5bd2c;
+  z-index: 1001;
+  font-weight: 500;
+}
+
+    /* HOVER OPEN (DESKTOP) */
+    @media (min-width: 992px) {
+      .navbar .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+
 
     @media (min-width: 992px) {
       .navbar-collapse {
@@ -157,6 +189,26 @@
         display: none;
       }
     }
+    /* Desktop: hover opens dropdown */
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile: full-width, static position */
+@media (max-width: 991px) {
+  .navbar .dropdown-menu {
+    position: static;
+    margin-top: 0.5rem;
+  }
+  .about{
+    margin-left: 7.5px;
+  }
+  .navbar .dropdown-menu.show {
+    display: block !important;
+  }
+}
   </style>
  
 </head>
@@ -173,12 +225,23 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+        <div class="dropdown">
+        <a href="/about" class="text-light nav-link text-decoration-none dropdown-toggle about">
+          About Us
+        </a>
+
+        <div class="dropdown-menu">
+          <a href="/about" class="dropdown-item">About Goldwings</a>
+          <a href="/blog" class="dropdown-item">Blog</a>
+          <a href="/pilot-training-faq-melbourne" class="dropdown-item">FAQs</a>
+        </div>
+      </div>
+
         <li class="nav-item"><a class="nav-link" href="/services">Our Courses</a></li>
         <li class="nav-item"><a class="nav-link" href="/mission">Our Mission</a></li>
         <li class="nav-item"><a class="nav-link" href="/values">Our Values</a></li>
         <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+       
         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
     
       </ul>
@@ -207,7 +270,14 @@
       <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quick Links</h5>
         <p><a href="/" class="text-light text-decoration-none">Home</a></p>
-        <p><a href="/about" class="text-light text-decoration-none">About Us</a></p>
+        <p><a href="/" class="text-light text-decoration-none">About Us</a></p>
+        <p><a href="/" class="text-light text-decoration-none">FAQs</a></p>
+        
+  
+
+        
+     
+
         <p><a href="/services" class="text-light text-decoration-none">Our Courses</a></p>
         <p><a href="/mission" class="text-light text-decoration-none">Our Mission</a></p>
         <p><a href="/values" class="text-light text-decoration-none">Our Values</a></p>
@@ -245,6 +315,37 @@
     gtag('js', new Date());
     gtag('config', 'AW-17746501820');
   </script>
+ 
+<script>
+  // Mobile dropdown toggle
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownToggles = document.querySelectorAll('.navbar .dropdown-toggle');
 
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        const parent = this.parentElement;
+        const menu = parent.querySelector('.dropdown-menu');
+
+        if (window.innerWidth < 992) { // only for mobile
+          e.preventDefault();
+          menu.classList.toggle('show');
+        }
+      });
+    });
+
+    // Optional: close dropdowns when clicking outside
+    document.addEventListener('click', function(e){
+      if (window.innerWidth < 992) {
+        dropdownToggles.forEach(toggle => {
+          const parent = toggle.parentElement;
+          const menu = parent.querySelector('.dropdown-menu');
+          if (!parent.contains(e.target)) {
+            menu.classList.remove('show');
+          }
+        });
+      }
+    });
+  });
+</script>
 </body>
 </html>
