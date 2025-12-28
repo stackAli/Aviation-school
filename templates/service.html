@@ -50,33 +50,58 @@
 
 <!-- 💼 Courses Section -->
 <section class="courses-section py-5">
-  <div class="container">
-    <h2 class="text-center mb-5 fw-bold display-5">Our Courses</h2>
+  
+<div class="container">
+
+    <h2 class="text-center mb-3 fw-bold " style="color: rgb(229, 189, 44);">
+      Pilot Training Courses in Melbourne
+    </h2>
+
+    <p class="text-center mb-4" style="color:#f0f0f3; max-width:850px; margin:0 auto 25px;">
+      Goldwings Aviation offers structured <strong>pilot training in Melbourne</strong> with 
+      professional pathways for both 
+      <strong>Recreational Pilot Licence (RPL)</strong> and 
+      <strong>Private Pilot Licence (PPL)</strong>, delivered by experienced instructors 
+      at <strong>Moorabbin Airport (YMMB)</strong>.
+    </p>
+
     <div class="row g-4 justify-content-center">
 
-      <!-- RPL Course -->
-      <div class="col-md-6 col-lg-5">
-        <div class="course-card rounded-4 shadow" style="background-image: url('/static/rpl3.jpg');">
-          <div class="overlay">
-            <h4 class="text-white fw-bold">Recreational Pilot Licence (RPL)</h4>
-            <p class="text-light px-3">Fly for leisure with certified skills and explore the skies on your own terms.</p>
-            <a href="/rpl" class="btn btn-light btn-sm mt-2">Learn More</a>
+      <!-- RPL -->
+      <div class="col-md-6 col-lg-5 scroll-popup">
+        <div class="course-card position-relative overflow-hidden rounded-4 shadow" 
+             style="background-image: url('/static/rpl3.jpg');">
+          <div class="overlay always-visible text-white text-center d-flex flex-column justify-content-center align-items-center px-3">
+            <h4 class="fw-bold">Recreational Pilot Licence (RPL)</h4>
+            <p>
+              Begin your aviation journey with RPL training in Melbourne and 
+              learn to fly confidently at Moorabbin Airport.
+            </p>
+            <a href="/recreational-pilot-licence-melbourne" class="btn btn-light btn-sm mt-2">
+              Learn More About RPL Training
+            </a>
           </div>
         </div>
       </div>
 
-      <!-- PPL Course -->
-      <div class="col-md-6 col-lg-5">
-        <div class="course-card rounded-4 shadow" style="background-image: url('/static/ppl4.jpg');">
-          <div class="overlay">
-            <h4 class="text-white fw-bold">Private Pilot Licence (PPL)</h4>
-            <p class="text-light px-3">Earn your wings with the Private Pilot Licence (PPL) — your gateway to flying for fun, travel, or future aviation pursuits.</p>
-            <a href="/ppl" class="btn btn-light btn-sm mt-2">Learn More</a>
+      <!-- PPL -->
+      <div class="col-md-6 col-lg-5 scroll-popup">
+        <div class="course-card position-relative overflow-hidden rounded-4 shadow" 
+             style="background-image: url('/static/ppl4.jpg');">
+          <div class="overlay always-visible text-white text-center d-flex flex-column justify-content-center align-items-center px-3">
+            <h4 class="fw-bold">Private Pilot Licence (PPL)</h4>
+            <p>
+              Take your training further with PPL and enjoy advanced flying 
+              freedom with professional Melbourne flight training.
+            </p>
+            <a href="/ppl" class="btn btn-light btn-sm mt-2">
+              Learn More About PPL Training
+            </a>
           </div>
         </div>
       </div>
-
-      <!-- PPL Course -->
+      
+<!-- PPL Course -->
       <div class="col-md-6 col-lg-5">
         <div class="course-card rounded-4 shadow" style="background-image: url('/static/review.jpeg');">
           <div class="overlay">
@@ -86,9 +111,10 @@
           </div>
         </div>
       </div>
-
     </div>
+    
   </div>
+
 </section>
 
 {% endblock %}

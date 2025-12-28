@@ -78,7 +78,7 @@ def contact():
 
     return render_template("contact.html", page="Contact")
 
-@app.route('/rpl')
+@app.route('/recreational-pilot-licence-melbourne')
 def rpl():
     return render_template("rpl.html", page="RPL")
 
