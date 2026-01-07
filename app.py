@@ -89,7 +89,9 @@ def cpl():
 @app.route('/ppl')
 def ppl():
     return render_template("ppl.html", page="PPL")
-
+@app.route("/rpl")
+def old_rpl():
+    return redirect("/recreational-pilot-licence-melbourne", code=301)
 
 @app.route('/end')
 def end():
@@ -98,9 +100,7 @@ def end():
 @app.route("/blog/pilot-training-cost-melbourne")
 def pilot_training_cost():
     return render_template("training-cost.html")
-@app.route("/rpl")
-def old_rpl():
-    return redirect("/recreational-pilot-licence-melbourne", code=301)
+
 @app.route("/blog/Weather-Conditions-for-Flying-in-Melbourne")
 def weather():
     return render_template("weather.html")
