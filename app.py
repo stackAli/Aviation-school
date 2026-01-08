@@ -86,9 +86,14 @@ def rpl():
 def cpl():
     return render_template("tif.html", page="TIF")
 
-@app.route('/ppl')
+@app.route('/private-pilot-licence-melbourne')
 def ppl():
     return render_template("ppl.html", page="PPL")
+
+@app.route("/ppl")
+def old_rpl():
+    return redirect("/private-pilot-licence-melbourne", code=301)
+
 @app.route("/rpl")
 def old_rpl():
     return redirect("/recreational-pilot-licence-melbourne", code=301)
