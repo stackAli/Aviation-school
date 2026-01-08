@@ -53,7 +53,7 @@ def about():
 @app.route('/services')
 def services():
     return render_template("service.html", page="Services")
-@app.route('/pricing')
+@app.route('/pilot-training-cost-melbourne')
 def pricing():
     return render_template('pricing.html', page="Pricing")
 
@@ -97,6 +97,10 @@ def old_ppl():
 @app.route("/rpl")
 def old_rpl():
     return redirect("/recreational-pilot-licence-melbourne", code=301)
+
+@app.route("/pricing")
+def old_pricing():
+    return redirect("/pilot-training-cost-melbourne", code=301)
 
 @app.route('/end')
 def end():
