@@ -91,7 +91,7 @@ def ppl():
     return render_template("ppl.html", page="PPL")
 
 @app.route("/ppl")
-def old_rpl():
+def old_ppl():
     return redirect("/private-pilot-licence-melbourne", code=301)
 
 @app.route("/rpl")
