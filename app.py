@@ -1,23 +1,24 @@
-from flask import Flask, render_template, redirect, url_for, request, flash, send_file
+from flask import Flask, render_template, redirect, url_for, request, flash, send_file, send_from_directory
 from flask_mail import Mail, Message
 from datetime import datetime
 from io import BytesIO
 from xhtml2pdf import pisa
 from models import db, StudentEnrolment
 import os
-from flask import send_from_directory
 
-from app import app, db
-with app.app_context():
-    db.create_all()
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
+
+
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'your_database.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'goldwings.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
 
 
 
@@ -36,8 +37,7 @@ app.config['MAIL_DEFAULT_SENDER'] = 'info@goldwingsaviation.com.au'    # default
 
 mail = Mail(app)
 
-# Init DB
-db.init_app(app)
+
 
 def generate_enrolment_pdf(enrolment):
     html = render_template("enrolment_pdf.html", enrolment=enrolment)
