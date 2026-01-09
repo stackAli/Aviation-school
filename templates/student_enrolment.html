@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Enrolment Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='student-enrolment.css') }}">
+</head>
+
+<body>
+<style>
+  body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
+  padding: 30px;
+}
+
+.form-wrapper {
+  background: #fff;
+  max-width: 900px;
+  margin: auto;
+  border: 2px solid #000;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-bottom: 2px solid #000;
+}
+
+.form-header img {
+  height: 60px;
+}
+
+.form-header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+form {
+  padding: 15px;
+}
+
+.section-title {
+  background: #cfcfcf;
+  padding: 8px;
+  font-weight: bold;
+  border: 1px solid #000;
+  margin-top: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  padding: 8px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.two-col > div {
+  border: 1px solid #000;
+  padding: 8px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"] {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+}
+
+.inline-options {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.inline-options input {
+  margin-right: 5px;
+}
+
+/* Submit button */
+.submit-row {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-row button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submit-row button:hover {
+  background: #333;
+}
+
+</style>
+<div class="form-wrapper">
+
+  <div class="form-header">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Gold Wings Aviation Logo">
+    <h1>STUDENT ENROLMENT FORM</h1>
+  </div>
+
+  <form method="POST" action="/student-enrolment">
+
+    <!-- Date / ARN -->
+    <div class="row two-col">
+      <div>
+        <label>Date:</label>
+        <input type="date" name="date">
+      </div>
+      <div>
+        <label>ARN:</label>
+        <input type="text" name="arn">
+      </div>
+    </div>
+
+    <!-- Personal Details -->
+    <div class="section-title">Personal Details</div>
+
+    <div class="row two-col">
+      <div>
+        <label>Surname *</label>
+        <input type="text" name="surname" required>
+      </div>
+      <div>
+        <label>First Name/s *</label>
+        <input type="text" name="first_names" required>
+      </div>
+    </div>
+
+    <div class="row two-col">
+      <div>
+        <label>Date of Birth *</label>
+        <input type="date" name="dob" required>
+      </div>
+      <div>
+        <label>Gender:</label>
+        <div class="inline-options">
+          <label><input type="radio" name="gender" value="M"> M</label>
+          <label><input type="radio" name="gender" value="F"> F</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="section-title">Address</div>
+
+    <div class="row">
+      <label>Street Number and Name *</label>
+      <input type="text" name="street_address" required>
+    </div>
+
+    <div class="row two-col">
+      <div>
+        <label>Suburb *</label>
+        <input type="text" name="suburb" required>
+      </div>
+      <div>
+        <label>Postcode *</label>
+        <input type="text" name="postcode" required>
+      </div>
+    </div>
+
+    <div class="row two-col">
+      <div>
+        <label>State / Territory *</label>
+        <input type="text" name="state" required>
+      </div>
+      <div>
+        <label>Country *</label>
+        <input type="text" name="country" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <label>Mobile *</label>
+      <input type="text" name="mobile" required>
+    </div>
+
+    <div class="row">
+      <label>Email *</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <!-- Emergency Contact -->
+    <div class="section-title">Emergency Contact Details</div>
+
+    <div class="row two-col">
+      <div>
+        <label>Name *</label>
+        <input type="text" name="emergency_name" required>
+      </div>
+      <div>
+        <label>Relationship *</label>
+        <input type="text" name="emergency_relationship" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <label>Emergency Mobile *</label>
+      <input type="text" name="emergency_mobile" required>
+    </div>
+
+    <!-- Flying Experience -->
+    <div class="section-title">Flying Experience</div>
+
+    <div class="row two-col">
+      <div>
+        <label>Total Flying Hours</label>
+        <input type="number" name="flying_hours" min="0">
+      </div>
+      <div>
+        <label>License Type</label>
+        <input type="text" name="license_type">
+      </div>
+    </div>
+
+    <div class="row">
+      <label>Flying Goals</label>
+      <div class="inline-options">
+        <label><input type="checkbox" name="flying_goals" value="Solo flights"> Solo flights</label>
+        <label><input type="checkbox" name="flying_goals" value="RPL"> RPL</label>
+        <label><input type="checkbox" name="flying_goals" value="PPL"> PPL</label>
+        <label><input type="checkbox" name="flying_goals" value="CPL and beyond"> CPL and beyond</label>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-row">
+      <button type="submit">Submit Enrolment</button>
+    </div>
+
+  </form>
+
+</div>
+
+</body>
+</html>

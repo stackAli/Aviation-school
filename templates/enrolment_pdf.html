@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4;
+            margin: 30px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            background: #cfcfcf;
+            padding: 6px;
+            font-weight: bold;
+            border: 1px solid #000;
+            margin-top: 15px;
+        }
+
+        .row {
+            border: 1px solid #000;
+            padding: 6px;
+        }
+
+        .two-col {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .two-col td {
+            width: 50%;
+            border: 1px solid #000;
+            padding: 6px;
+            vertical-align: top;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>STUDENT ENROLMENT FORM</h1>
+
+<!-- Date / ARN -->
+<table class="two-col">
+    <tr>
+        <td><span class="label">Date:</span>
+            {{ enrolment.date.strftime('%d/%m/%Y') if enrolment.date else '—' }}
+        </td>
+        <td><span class="label">ARN:</span>
+            {{ enrolment.arn or '—' }}
+        </td>
+    </tr>
+</table>
+
+<!-- Personal Details -->
+<div class="section-title">Personal Details</div>
+
+<table class="two-col">
+    <tr>
+        <td><span class="label">Surname:</span> {{ enrolment.surname }}</td>
+        <td><span class="label">First Name(s):</span> {{ enrolment.first_names }}</td>
+    </tr>
+    <tr>
+        <td><span class="label">Date of Birth:</span>
+            {{ enrolment.date_of_birth.strftime('%d/%m/%Y') }}
+        </td>
+        <td><span class="label">Gender:</span> {{ enrolment.gender or '—' }}</td>
+    </tr>
+</table>
+
+<!-- Address -->
+<div class="section-title">Address</div>
+
+<div class="row">
+    <span class="label">Street Number and Name:</span><br>
+    {{ enrolment.street_address }}
+</div>
+
+<table class="two-col">
+    <tr>
+        <td><span class="label">Suburb:</span> {{ enrolment.suburb }}</td>
+        <td><span class="label">Postcode:</span> {{ enrolment.postcode }}</td>
+    </tr>
+    <tr>
+        <td><span class="label">State / Territory:</span> {{ enrolment.state }}</td>
+        <td><span class="label">Country:</span> {{ enrolment.country }}</td>
+    </tr>
+</table>
+
+<div class="row">
+    <span class="label">Mobile:</span> {{ enrolment.mobile }}
+</div>
+
+<div class="row">
+    <span class="label">Email:</span> {{ enrolment.email }}
+</div>
+
+<!-- Emergency Contact -->
+<div class="section-title">Emergency Contact Details</div>
+
+<table class="two-col">
+    <tr>
+        <td><span class="label">Name:</span> {{ enrolment.emergency_name }}</td>
+        <td><span class="label">Relationship:</span> {{ enrolment.emergency_relationship }}</td>
+    </tr>
+</table>
+
+<div class="row">
+    <span class="label">Emergency Mobile:</span> {{ enrolment.emergency_mobile }}
+</div>
+
+<!-- Flying Experience -->
+<div class="section-title">Flying Experience</div>
+
+<table class="two-col">
+    <tr>
+        <td><span class="label">Total Flying Hours:</span>
+            {{ enrolment.flying_hours or '—' }}
+        </td>
+        <td><span class="label">License Type:</span>
+            {{ enrolment.license_type or '—' }}
+        </td>
+    </tr>
+</table>
+
+<div class="row">
+    <span class="label">Flying Goals:</span>
+    {{ enrolment.flying_goals or '—' }}
+</div>
+
+</body>
+</html>

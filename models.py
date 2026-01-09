@@ -3,6 +3,50 @@ from flask_login import UserMixin
 
 db = SQLAlchemy()
 
+
+
+
+class StudentEnrolment(db.Model):
+    __tablename__ = "student_enrolments"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    # Top fields
+    date = db.Column(db.Date, nullable=True)
+    arn = db.Column(db.String(50), nullable=True)
+
+    # Personal details
+    surname = db.Column(db.String(100), nullable=False)
+    first_names = db.Column(db.String(150), nullable=False)
+    date_of_birth = db.Column(db.Date, nullable=False)
+    gender = db.Column(db.String(20), nullable=True)
+
+    # Address
+    street_address = db.Column(db.String(255), nullable=False)
+    suburb = db.Column(db.String(100), nullable=False)
+    postcode = db.Column(db.String(20), nullable=False)
+    state = db.Column(db.String(50), nullable=False)
+    country = db.Column(db.String(50), nullable=False)
+
+    # Contact
+    mobile = db.Column(db.String(30), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+
+    # Emergency contact
+    emergency_name = db.Column(db.String(150), nullable=False)
+    emergency_relationship = db.Column(db.String(100), nullable=False)
+    emergency_mobile = db.Column(db.String(30), nullable=False)
+
+    # Flying experience
+    flying_hours = db.Column(db.Integer, nullable=True)
+    license_type = db.Column(db.String(50), nullable=True)
+
+    # Goals (stored as comma-separated values)
+    flying_goals = db.Column(db.String(255), nullable=True)
+
+    def __repr__(self):
+        return f"<StudentEnrolment {self.surname}, {self.first_names}>"
+
 # 📄 USERS TABLE (Authentication)
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
