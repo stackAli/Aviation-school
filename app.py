@@ -7,6 +7,9 @@ from models import db, StudentEnrolment
 import os
 from flask import send_from_directory
 
+from app import app, db
+with app.app_context():
+    db.create_all()
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
