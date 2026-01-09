@@ -153,41 +153,15 @@ def values():
 @app.route('/student-enrolment', methods=['GET', 'POST'])
 def student_enrolment():
     if request.method == 'POST':
-
-        # ---------- DATE VALIDATION ----------
-        dob_raw = request.form.get('dob')
-        date_raw = request.form.get('date')
-
-        try:
-            dob = datetime.strptime(dob_raw, '%Y-%m-%d')
-        except (ValueError, TypeError):
-            flash("Please enter a valid Date of Birth.", "danger")
-            return redirect(url_for('student_enrolment'))
-
-        # DOB sanity checks
-        if dob.year < 1900 or dob > datetime.today():
-            flash("Date of Birth must be a valid past date.", "danger")
-            return redirect(url_for('student_enrolment'))
-
-        # Optional form date validation
-        form_date = None
-        if date_raw:
-            try:
-                form_date = datetime.strptime(date_raw, '%Y-%m-%d')
-            except ValueError:
-                flash("Invalid form date.", "danger")
-                return redirect(url_for('student_enrolment'))
-
-        # ---------- MAIN LOGIC ----------
         try:
             goals = request.form.getlist('flying_goals')
 
             enrolment = StudentEnrolment(
-                date=form_date,
+                date=datetime.strptime(request.form['date'], '%Y-%m-%d') if request.form.get('date') else None,
                 arn=request.form.get('arn'),
                 surname=request.form['surname'],
                 first_names=request.form['first_names'],
-                date_of_birth=dob,
+                date_of_birth=datetime.strptime(request.form['dob'], '%Y-%m-%d'),
                 gender=request.form.get('gender'),
                 street_address=request.form['street_address'],
                 suburb=request.form['suburb'],
@@ -207,7 +181,7 @@ def student_enrolment():
             db.session.add(enrolment)
             db.session.commit()
 
-            # ---------- PDF GENERATION ----------
+            # Generate PDF
             html = render_template('enrolment_pdf.html', enrolment=enrolment)
             pdf = BytesIO()
             pisa.CreatePDF(html, dest=pdf)
@@ -217,18 +191,16 @@ def student_enrolment():
                 subject=f"{enrolment.first_names} {enrolment.surname} submitted the enrolment form",
                 recipients=['info@goldwingsaviation.com.au']
             )
-            msg.body = "A new student enrolment form has been submitted. PDF attached."
+
+            msg.body = "Enrolment PDF attached."
             msg.attach("enrolment.pdf", "application/pdf", pdf.read())
             mail.send(msg)
 
-            flash("Enrolment submitted successfully.", "success")
+            flash("Enrolment submitted successfully", "success")
             return redirect(url_for('end'))
 
         except Exception as e:
-            # Log real error (recommended)
-            print(e)
-            flash("Something went wrong. Please try again.", "danger")
-            return redirect(url_for('student_enrolment'))
+            return f"Server error: {e}", 500
 
     return render_template('student_enrolment.html')
 
