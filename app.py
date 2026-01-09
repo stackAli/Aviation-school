@@ -4,14 +4,15 @@ from datetime import datetime
 from io import BytesIO
 from xhtml2pdf import pisa
 from models import db, StudentEnrolment
-
+import os
 from flask import send_from_directory
 
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'your_database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
