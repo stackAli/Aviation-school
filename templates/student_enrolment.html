@@ -122,7 +122,8 @@ input[type="number"] {
     <h1>STUDENT ENROLMENT FORM</h1>
   </div>
 
-  <form method="POST" action="/student-enrolment">
+  <form method="POST" action="{{ url_for('student_enrolment') }}" novalidate>
+
 
     <!-- Date / ARN -->
     <div class="row two-col">
