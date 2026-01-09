@@ -15,6 +15,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'your_database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -30,7 +31,7 @@ app.config['MAIL_USERNAME'] = 'info@goldwingsaviation.com.au'          # Your em
 app.config['MAIL_PASSWORD'] = 'Almasg@2025'             # Your password or app password
 app.config['MAIL_DEFAULT_SENDER'] = 'info@goldwingsaviation.com.au'    # default sender
 
-mail = Mail(app)
+
 
 
 mail = Mail(app)
@@ -152,72 +153,56 @@ def values():
 @app.route('/student-enrolment', methods=['GET', 'POST'])
 def student_enrolment():
     if request.method == 'POST':
+        try:
+            goals = request.form.getlist('flying_goals')
 
-        goals = request.form.getlist('flying_goals')
+            enrolment = StudentEnrolment(
+                date=datetime.strptime(request.form['date'], '%Y-%m-%d') if request.form.get('date') else None,
+                arn=request.form.get('arn'),
+                surname=request.form['surname'],
+                first_names=request.form['first_names'],
+                date_of_birth=datetime.strptime(request.form['dob'], '%Y-%m-%d'),
+                gender=request.form.get('gender'),
+                street_address=request.form['street_address'],
+                suburb=request.form['suburb'],
+                postcode=request.form['postcode'],
+                state=request.form['state'],
+                country=request.form['country'],
+                mobile=request.form['mobile'],
+                email=request.form['email'],
+                emergency_name=request.form['emergency_name'],
+                emergency_relationship=request.form['emergency_relationship'],
+                emergency_mobile=request.form['emergency_mobile'],
+                flying_hours=request.form.get('flying_hours'),
+                license_type=request.form.get('license_type'),
+                flying_goals=", ".join(goals)
+            )
 
-        enrolment = StudentEnrolment(
-            date=datetime.strptime(request.form['date'], '%Y-%m-%d') if request.form.get('date') else None,
-            arn=request.form.get('arn'),
+            db.session.add(enrolment)
+            db.session.commit()
 
-            surname=request.form['surname'],
-            first_names=request.form['first_names'],
-            date_of_birth=datetime.strptime(request.form['dob'], '%Y-%m-%d'),
-            gender=request.form.get('gender'),
+            # Generate PDF
+            html = render_template('enrolment_pdf.html', enrolment=enrolment)
+            pdf = BytesIO()
+            pisa.CreatePDF(html, dest=pdf)
+            pdf.seek(0)
 
-            street_address=request.form['street_address'],
-            suburb=request.form['suburb'],
-            postcode=request.form['postcode'],
-            state=request.form['state'],
-            country=request.form['country'],
+            msg = Message(
+                subject=f"{enrolment.first_names} {enrolment.surname} submitted the enrolment form",
+                recipients=['info@goldwingsaviation.com.au']
+            )
 
-            mobile=request.form['mobile'],
-            email=request.form['email'],
+            msg.body = "Enrolment PDF attached."
+            msg.attach("enrolment.pdf", "application/pdf", pdf.read())
+            mail.send(msg)
 
-            emergency_name=request.form['emergency_name'],
-            emergency_relationship=request.form['emergency_relationship'],
-            emergency_mobile=request.form['emergency_mobile'],
+            flash("Enrolment submitted successfully", "success")
+            return redirect(url_for('end'))
 
-            flying_hours=request.form.get('flying_hours'),
-            license_type=request.form.get('license_type'),
-            flying_goals=", ".join(goals)
-        )
+        except Exception as e:
+            return f"Server error: {e}", 500
 
-        # 1️⃣ Save to database
-        db.session.add(enrolment)
-        db.session.commit()
-
-        # 2️⃣ Generate PDF from HTML template
-        html = render_template('enrolment_pdf.html', enrolment=enrolment)
-        pdf_buffer = BytesIO()
-        pisa.CreatePDF(html, dest=pdf_buffer)
-        pdf_buffer.seek(0)
-
-        # 3️⃣ Send email with PDF attachment
-        msg = Message(
-            subject=f"{enrolment.first_names} {enrolment.surname} submitted the enrolment form",
-            sender=app.config['MAIL_USERNAME'],
-            recipients=['info@goldwingsaviation.com.au']
-        )
-
-        msg.body = (
-            "A new student enrolment form has been submitted.\n\n"
-            "Please find the completed enrolment form attached as a PDF."
-        )
-
-        msg.attach(
-            filename=f"Student_Enrolment_{enrolment.first_names}_{enrolment.surname}.pdf",
-            content_type="application/pdf",
-            data=pdf_buffer.read()
-        )
-
-        mail.send(msg)
-
-        # 4️⃣ Success + redirect
-        flash("Your enrolment has been submitted successfully.", "success")
-        return redirect(url_for('end'))
-
-    return render_template('student_enrolment.html', page="Student Enrolment")
-
+    return render_template('student_enrolment.html')
 
 if __name__ == "__main__":
     with app.app_context():
