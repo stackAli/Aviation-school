@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% block head %}
-<title>Recreational Pilot Licence (RPL) Training | Moorabbin Flight School</title>
+<title>Recreational Pilot Licence Melbourne (PPL) | Moorabbin Airport</title>
 
-<meta name="description" content="Begin your Recreational Pilot Licence (RPL) at Goldwings Aviation, Moorabbin Airport. Learn to fly with CASA-approved instructors and start your aviation journey the right way.">
+<meta name="description" content="Start your Recreational Pilot Licence (RPL) at Moorabbin Airport with Goldwings Aviation. CASA-approved, beginner-friendly training with pathways to PPL. Book your first flight.">
 
-<meta name="keywords" content="RPL Moorabbin, RPL Melbourne, Recreational Pilot Licence Australia, learn to fly Moorabbin, flight school Moorabbin RPL, RPL cost Melbourne, RPL training Australia">
 
 <!-- OpenGraph -->
 <meta property="og:title" content="Recreational Pilot Licence (RPL) | Goldwings Aviation Moorabbin">
@@ -23,6 +22,88 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Recreational Pilot Licence (RPL) in Australia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Recreational Pilot Licence (RPL) is a CASA-issued licence that allows you to fly light, single-engine aircraft as pilot in command within a 25-nautical-mile radius of your departure aerodrome. It is a common entry point for people who want to learn to fly in Melbourne and across Australia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many flight hours are required for an RPL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CASA requires a minimum of 25 flight hours for an RPL, including dual instruction and supervised solo flying. Many students benefit from additional hours depending on their training pace and lesson frequency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a medical certificate for RPL training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. RPL students must hold a valid CASA medical certificate, typically a Class 2 or Basic Class 2. Guidance can be provided before you begin training at Moorabbin Airport."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I fly solo with a Recreational Pilot Licence?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Solo flight is a key milestone during RPL training once authorised by an instructor. After licensing, you may fly as pilot in command within the operating limits of your RPL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I fly with an RPL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An RPL allows you to fly within 25 nautical miles of your departure aerodrome. With additional endorsements, you may operate in controlled airspace and at aerodromes such as Moorabbin Airport."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does RPL flight training cost in Melbourne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RPL training costs vary based on aircraft type, lesson frequency, and individual progress. A tailored estimate and training plan can be provided based on your goals and availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I upgrade from RPL to a Private Pilot Licence (PPL)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Many students use RPL training as a pathway to a Private Pilot Licence (PPL). RPL flight hours and experience may be credited toward PPL requirements, helping streamline progression."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I fly to progress efficiently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flying one to three times per week generally leads to faster progress and better skill retention. Training plans can be adapted to suit different schedules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is RPL training suitable for complete beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. RPL training is suitable for complete beginners. CASA-approved instructors guide students step by step from their first lesson through to the RPL flight test."
+      }
+    }
+  ]
+}
+</script>
+
+
 {% endblock %}
 
 
@@ -33,7 +114,7 @@
   <section class="hero-section d-flex align-items-center text-white">
     <div class="container-fluid px-5">
       <div class="hero-text text-start p-4 rounded shadow">
-        <h1 class="display-4 fw-bold fs-2" style="color: #05094d;">Recreational Pilot Licence (RPL)-</h1>
+        <h1 class="display-4 fw-bold fs-2" style="color: #05094d;">Recreational Pilot Licence Moorabbin</h1>
         <p class="lead fw-medium" style="color: #05094d;">Your First Step into the Skies</p>
       </div>
     </div>
@@ -46,11 +127,12 @@
     <div class="row align-items-center">
       <div class="col-md-6">
         <p class="fs-5">
-          The Recreational Pilot Licence (RPL) is the ideal entry point for aspiring pilots in Australia. Issued by the Civil Aviation Safety Authority (CASA), the RPL allows you to fly light, single-engine aircraft as pilot in command—without supervision—within 25 nautical miles of your departure aerodrome.
+          The Recreational Pilot Licence (RPL) at Moorabbin Airport is the most accessible and practical way to learn to fly in Melbourne. Designed for beginners, this CASA-regulated licence allows you to fly light, single-engine aircraft as pilot in command—without supervision—within a 25-nautical-mile radius of your departure aerodrome.
         </p>
-        <p class="fs-5">
-          Whether you're flying for fun or building toward a career, the RPL is your launchpad into aviation.
-        </p>
+        <div class="fs-5">
+          Delivered by CASA-approved instructors, RPL training at Goldwings Aviation combines structured flight lessons, theory preparation, and real-world aerodrome operations at Moorabbin Airport, one of Australia’s busiest training environments. As a trusted RPL flight school in Melbourne, we prepare students not only to fly safely and confidently, but also to progress smoothly toward advanced licences such as the Private Pilot Licence (PPL), Commercial Pilot Licence (CPL), and beyond.
+        </div>
+        
       </div>
       <div class="col-md-6 text-center">
         <img src="{{ url_for('static', filename='b6.jpg') }}" alt="Flight training for RPL licence" class="img-fluid rpl-img-1 rounded-4 shadow">
@@ -58,6 +140,92 @@
     </div>
   </div>
 </section>
+
+<!-- SECTION: What you gain with a Recreational Pilot Licence (RPL) -->
+<section class="py-5" style="background: linear-gradient(180deg, #0b0f3b 0%, #05094d 100%);">
+  <div class="container d-flex justify-content-center custom-container">
+    <div class="col-lg-9 col-xl-8">
+      <div class="p-5 rounded-4 shadow-lg text-white gain-card">
+
+        <h2 class="fw-bold text-center mb-4" style="color: rgb(229, 189, 44);">
+          What you gain with a Recreational Pilot Licence (RPL)
+        </h2>
+
+        <p class="fs-5 text-center mb-4">
+          With a <strong>Recreational Pilot Licence at Moorabbin Airport</strong>, you gain the skills and confidence to
+          fly as pilot in command under a structured, beginner-friendly training framework.
+          <strong>CASA-approved RPL training in Melbourne</strong> focuses on core flying skills, airspace awareness,
+          and safe decision-making in real operational environments.
+        </p>
+
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <ul class="fs-5 gain-list mb-0">
+              <li>Fly light, single-engine aircraft as pilot in command</li>
+              <li>Operate safely within a 25-nautical-mile radius of your departure aerodrome</li>
+              <li>Develop strong aircraft handling, take-off, and landing skills</li>
+              <li>Learn radio procedures and aerodrome operations at Moorabbin Airport</li>
+              <li>Build a solid foundation to progress toward a Private Pilot Licence (PPL) </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom-container {
+    max-width: 1700px;
+  }
+
+  /* Highlight card styling */
+  .gain-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(229, 189, 44, 0.25);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Professional checklist styling */
+  .gain-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .gain-list li {
+    position: relative;
+    padding-left: 38px;
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+
+  .gain-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(229, 189, 44, 0.15);
+    border: 1px solid rgba(229, 189, 44, 0.45);
+    color: rgb(229, 189, 44);
+    font-weight: 800;
+    font-size: 0.9rem;
+  }
+
+  /* Mobile polish */
+  @media (max-width: 576px) {
+    .gain-card {
+      padding: 2.5rem 1.5rem !important;
+    }
+  }
+</style>
 
 <!-- Section 2: Eligibility Requirements -->
 <section class="py-5" style="background-color: #05094d; color: white;">
@@ -210,5 +378,195 @@
 }
 
 </style>
+
+<!-- FAQ SECTION -->
+<section class="py-5" style="background: linear-gradient(180deg, #05094d 0%, #0b0f3b 100%);">
+  <div class="container d-flex justify-content-center">
+    <div class="col-lg-10 col-xl-8">
+      <div class="p-5 rounded-4 shadow-lg text-white faq-card">
+
+        <h2 class="fw-bold text-center mb-4" style="color: rgb(229, 189, 44);">
+          Recreational Pilot Licence (RPL) — Frequently Asked Questions
+        </h2>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            What is a Recreational Pilot Licence (RPL) in Australia?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            The Recreational Pilot Licence (RPL) is a CASA-issued licence that allows you to fly light, single-engine aircraft as pilot in command within a 25-nautical-mile radius of your departure aerodrome. It is a common entry point for people who want to learn to fly in Melbourne and across Australia.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            How many flight hours are required for an RPL?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            CASA requires a minimum of 25 flight hours for an RPL, including dual instruction and supervised solo flying. Many students benefit from extra hours depending on training pace and lesson frequency.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Do I need a medical certificate for RPL training?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. RPL students must hold a valid CASA medical certificate (often a Class 2 or Basic Class 2). If you're unsure what applies to you, we can guide you before you begin training at Moorabbin Airport.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Can I fly solo with a Recreational Pilot Licence?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Solo flight is a key milestone in RPL training once your instructor authorises you. After licensing, you can fly as pilot in command within the operating limits of your RPL.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Where can I fly with an RPL?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            An RPL allows you to fly within 25 nautical miles of your departure aerodrome. With additional endorsements, you can operate in controlled airspace and at aerodromes such as Moorabbin Airport.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            How much does RPL flight training cost in Melbourne?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            RPL training costs vary based on aircraft type, lesson frequency, and individual progress. Contact us for a tailored estimate and a training plan that suits your schedule and goals.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Can I upgrade from RPL to a Private Pilot Licence (PPL)?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Many students use RPL training as a pathway into PPL. Your RPL hours and experience may be credited toward PPL requirements, making progression smoother.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            How often should I fly to progress efficiently?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Flying 1–3 times per week usually leads to faster progress and better skill retention. If your schedule is tighter, we can still build a practical plan around your availability.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Is RPL training suitable for complete beginners?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Absolutely. Our CASA-approved instructors take you step by step from your first lesson through to your RPL flight test, making it beginner-friendly and structured.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  .faq-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(229, 189, 44, 0.25);
+    backdrop-filter: blur(6px);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .faq-question:hover {
+    color: rgb(229, 189, 44);
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(229, 189, 44);
+    transition: transform 0.2s ease;
+    margin-left: 14px;
+    flex-shrink: 0;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 1rem;
+    color: #e6e6e6;
+    padding-right: 10px;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 320px;
+    padding-bottom: 16px;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile polish */
+  @media (max-width: 576px) {
+    .faq-card {
+      padding: 2.5rem 1.5rem !important;
+    }
+    .faq-question {
+      font-size: 1.02rem;
+    }
+  }
+</style>
+
+<!-- JS -->
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+      const icon = button.querySelector('.faq-icon');
+
+      // Toggle current
+      faqItem.classList.toggle('active');
+
+      // Update icon
+      icon.textContent = faqItem.classList.contains('active') ? '−' : '+';
+    });
+  });
+</script>
 
 {% endblock %}
