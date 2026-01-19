@@ -1,156 +1,760 @@
 {% extends "base.html" %}
 {% block head %}
-<title>About Goldwings Aviation | Pilot Training Melbourne</title>
-<meta name="description" content="Goldwings Aviation is a boutique flight school at Moorabbin Airport Melbourne offering personalised RPL and PPL pilot training with experienced instructors.">
-<meta name="keywords" content="learn to fly Melbourne,
-pilot training Melbourne,
-flight training Melbourne,
-Moorabbin flight school,
-Moorabbin Airport flying school">
+<title>About Goldwings Aviation | Flight School at Moorabbin Airport</title>
+<meta name="description" content="Goldwings Aviation is a Moorabbin-based flight school offering Recreational and Private Pilot Licence training. Learn from experienced instructors serving Melbourne’s south-east.">
 
-<meta property="og:title" content="About Goldwings Aviation | Pilot Training Melbourne">
-<meta property="og:description" content="Learn about our Chief Instructor, training aircraft, and personalised flight school experience at Moorabbin Airport.">
+<meta property="og:title" content="About Goldwings Aviation | Flight School at Moorabbin Airport">
+<meta property="og:description" content="Goldwings Aviation is a Moorabbin-based flight school offering Recreational and Private Pilot Licence training. Learn from experienced instructors serving Melbourne’s south-east.">
 <meta property="og:type" content="website">
 
+<!-- Optional: canonical if you haven't set site-wide -->
+<link rel="canonical" href="https://www.goldwingsaviation.com.au/about">
+
+<!-- Person schema: keep it accurate (CFI, not CEO unless that’s true). -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
+  "@context": "https://schema.org",
   "@type": "Person",
   "name": "Muhammad Khalid",
   "url": "https://www.goldwingsaviation.com.au/about",
   "image": "https://www.goldwingsaviation.com.au/static/about1.jpg",
-  "jobTitle": "CEO",
+  "jobTitle": "Chief Flight Instructor",
   "worksFor": {
     "@type": "Organization",
     "name": "Goldwings Aviation"
-  }  
+  }
 }
 </script>
+
+<style>
+  :root{
+    --gw-navy:#05094d;
+    --gw-gold:#e5bd2c;
+    --gw-muted:#6b7280;
+    --gw-card:#0b0f3b;
+    --gw-soft:#f7f7fb;
+    --gw-radius:18px;
+  }
+
+  /* Page-scoped base tweaks */
+  .about-page{ color: var(--gw-navy); background:#fff; }
+  .about-page a{ color: var(--gw-navy); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .about-page a:hover{ color: var(--gw-gold); text-decoration: none; }
+  .about-page h1, .about-page h2, .about-page h3, .about-page h4{ font-weight: 800; letter-spacing: -0.02em; }
+
+  /* Hero */
+  .about-hero{
+    background-color: #05094d;
+    color:#fff;
+    padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-hero .badge{
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.16);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .about-hero .badge-dot{
+    width:10px; height:10px; border-radius:50%;
+    background: var(--gw-gold);
+    box-shadow: 0 0 0 6px rgba(229,189,44,0.18);
+  }
+  .about-hero h1{ color:#fff; font-size: clamp(1.75rem, 2.6vw, 2.6rem); margin-top: 14px; }
+  .about-hero p.lead{ color: rgba(255,255,255,0.88); font-size: 1.07rem; line-height: 1.7; margin: 14px 0 0; }
+  .hero-card{
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: var(--gw-radius);
+    padding: 18px 18px;
+    margin-top: 18px;
+    backdrop-filter: blur(6px);
+  }
+  .hero-kpis{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top: 14px;
+  }
+  .kpi{
+    flex: 1 1 160px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 14px;
+    padding: 12px 14px;
+  }
+  .kpi .label{ color: rgba(255,255,255,0.72); font-size: 0.92rem; }
+  .kpi .value{ color:#fff; font-weight: 800; font-size: 1.05rem; margin-top: 4px; }
+
+  /* Sections */
+  .section{
+    padding: 70px 0;
+  }
+  .section.soft{
+    background: var(--gw-soft);
+  }
+  .section .eyebrow{
+    color: var(--gw-gold);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+  }
+  .section h2{
+    color: var(--gw-navy);
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    margin-bottom: 14px;
+  }
+  .section p{
+    color: #111827;
+    line-height: 1.75;
+    font-size: 1.02rem;
+  }
+  .muted{
+    color: var(--gw-muted);
+  }
+
+  /* Cards & media */
+  .gw-card{
+    border-radius: var(--gw-radius);
+    box-shadow: 0 14px 30px rgba(5,9,77,0.10);
+    border: 1px solid rgba(5,9,77,0.08);
+    background: #fff;
+    overflow: hidden;
+  }
+  .gw-card.dark{
+    background: linear-gradient(180deg, var(--gw-navy) 0%, #0b0f3b 100%);
+    border: 1px solid rgba(255,255,255,0.10);
+    color:#fff;
+  }
+  .gw-card.dark h2, .gw-card.dark p, .gw-card.dark .muted{ color: rgba(255,255,255,0.90); }
+  .gw-card.dark .eyebrow{ color: var(--gw-gold); }
+
+  .media-img{
+    width:100%;
+    height: 380px;
+    object-fit: cover;
+    display:block;
+  }
+  @media (max-width: 992px){
+    .media-img{ height: 300px; }
+  }
+
+  /* List */
+  .ticks{
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+  .ticks li{
+    display:flex;
+    gap: 10px;
+    align-items:flex-start;
+    color: #111827;
+  }
+  .ticks .tick{
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: rgba(229,189,44,0.18);
+    border: 1px solid rgba(229,189,44,0.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex: 0 0 22px;
+    margin-top: 2px;
+    color: var(--gw-navy);
+    font-weight: 900;
+  }
+  .gw-card.dark .ticks li{ color: rgba(255,255,255,0.90); }
+  .gw-card.dark .ticks .tick{
+    background: rgba(229,189,44,0.18);
+    border: 1px solid rgba(229,189,44,0.30);
+    color: #fff;
+  }
+
+  /* CTA */
+  .cta{
+    border-radius: var(--gw-radius);
+    background: linear-gradient(180deg, rgba(229,189,44,0.18) 0%, rgba(229,189,44,0.08) 100%);
+    border: 1px solid rgba(229,189,44,0.30);
+    padding: 22px;
+    margin-top: 18px;
+  }
+  .btn-gw{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: var(--gw-gold);
+    color: var(--gw-navy) !important;
+    font-weight: 800;
+    text-decoration: none !important;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 10px 22px rgba(229,189,44,0.25);
+  }
+  .btn-gw:hover{ filter: brightness(0.98); transform: translateY(-1px); }
+  .btn-ghost{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: transparent;
+    color: #fff !important;
+    font-weight: 800;
+    text-decoration: none !important;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .btn-ghost:hover{ border-color: rgba(229,189,44,0.55); color: var(--gw-gold) !important; }
+
+  /* Contact box */
+  .contact-box{
+    border-radius: var(--gw-radius);
+    background: #fff;
+    border: 1px solid rgba(5,9,77,0.10);
+    box-shadow: 0 14px 30px rgba(5,9,77,0.10);
+    padding: 22px;
+  }
+  .contact-box h3{
+    font-size: 1.15rem;
+    margin: 0 0 12px;
+    color: var(--gw-navy);
+    font-weight: 900;
+  }
+  .contact-line{
+    margin: 0 0 10px;
+    color: #111827;
+    line-height: 1.6;
+  }
+  .contact-line span{
+    display:block;
+    color: var(--gw-muted);
+    font-size: 0.92rem;
+    margin-bottom: 2px;
+  }
+</style>
 {% endblock %}
 
-
 {% block content %}
+<section class="about-page">
 
-
-
-
-
-<section class="container-fluid px-0">
-
-  <!-- ✈️ Section 1: About Heading -->
-  <section class="py-5 bg-light text-center">
-    <h1 class="mb-4">About Goldwings Aviation</h1>
-    <div class="container" style="max-width: 900px;">
-      <p style="color: #05094d; font-size: 1rem; line-height: 1.6;">
-        <strong>Goldwings Aviation</strong> was established in 2025. We offer a boutique flight school experience, focused on quality and personalised service. Here, you're not just one of hundreds—you’re part of our community from day one.
-      </p>
-    </div>
-  </section>
-
-  <!-- 👨‍✈️ Section 2: Chief Instructor -->
-  <section class="py-5" style="background-color: #05094d; color: white;">
+  <!-- HERO / H1 + FIRST 100 WORDS -->
+  <section class="about-hero">
     <div class="container">
-      <div class="row align-items-center flex-md-row-reverse">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <img src="{{ url_for('static', filename='about1.jpg') }}"
-               class="img-fluid rounded shadow align-self-stretch"
-               alt="Chief Flight Instructor Muhammad Khalid"
-               loading="lazy"
-               style="object-fit: cover; width: 100%; height: 400px; margin-top: 30px;">
-        </div>
-        <div class="col-md-6 d-flex flex-column justify-content-center">
-          <h2 class="h4 mb-3">Meet Our Chief Flight Instructor</h2>
-          <p>
-            Our Chief Instructor, <strong>Muhammad Khalid</strong>, began his flying career in 2015, flying out of Point Cook. Throughout his journey from RPL to PPL and CPL, flying across Victoria, Khalid discovered the importance of high-quality instruction and meaningful mentoring.
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <div class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Moorabbin-based flight school • Serving Melbourne’s south-east
+          </div>
+
+          <h1>About Goldwings Aviation — Flight School at Moorabbin Airport</h1>
+
+          <!-- Core relevance block: FIRST ~100 WORDS -->
+          <p class="lead">
+            <strong>
+              Goldwings Aviation is a Moorabbin-based flight school located at Moorabbin Airport, providing Recreational Pilot Licence (RPL) and Private Pilot Licence (PPL) training for students learning to fly recreationally or building the core skills needed to progress toward Commercial Pilot Licence (CPL) pathways.
+            </strong>
+            Established in 2025, we focus on high-quality, personalised flight training with flexible scheduling and instruction grounded in real-world aviation standards.
+            We proudly support students training at Moorabbin Airport and across Melbourne’s south-east.
           </p>
-          <p>
-            Khalid is a senior flight instructor with hundreds of hours of teaching experience. He can guide you from your very first lesson all the way to your PPL flight test. He’s driven by a genuine passion for helping students succeed and achieve their goals.
-          </p>
+
+
+          <div class="hero-kpis">
+            <div class="kpi">
+              <div class="label">Training Offered</div>
+              <div class="value">RPL &amp; PPL</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Aircraft</div>
+              <div class="value">Cessna 172</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Location</div>
+              <div class="value">Moorabbin Airport</div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="d-flex flex-wrap gap-2">
+              <!-- Internal link (recommended): point to your real course URLs -->
+              <a class="btn-gw" href="/contact">Book a School Tour</a>
+              <a class="btn-ghost" href="/courses">Explore Our Courses</a>
+            </div>
+            <p class="muted" style="margin: 12px 0 0; color: rgba(255,255,255,0.75) !important;">
+              Boutique instruction, real mentoring, and a student-first training environment.
+            </p>
+          </div>
         </div>
+
+        <div class="col-lg-5">
+          <div class="gw-card dark">
+            <img
+              src="{{ url_for('static', filename='about2.jpeg') }}"
+              class="media-img"
+              alt="Cessna 172 training aircraft used for RPL and PPL flight training at Moorabbin Airport"
+              loading="lazy">
+            <div class="p-4">
+              <div class="eyebrow">Boutique Flight Training</div>
+              <p class="mb-0">
+                Train with structured briefings, practical flying standards, and flexible lesson times designed around real life.
+              </p>
+              <ul class="ticks">
+                <li><span class="tick">✓</span><span>Flexible scheduling for school, work, and family</span></li>
+                <li><span class="tick">✓</span><span>Clear training pathway from first lesson to licence completion</span></li>
+                <li><span class="tick">✓</span><span>Supportive community from day one</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+<!-- SECTION: CHIEF FLIGHT INSTRUCTOR (image moved here) -->
+<section class="section">
+  <div class="container">
+    <div class="row g-4 align-items-center">
 
-  <!-- 🛩️ Section 3: Our Training Programs -->
-  <section class="py-5 bg-white">
+      <!-- Image column (now in the instructor section) -->
+      <div class="col-lg-5 order-1 order-lg-2">
+        <div class="gw-card">
+          <img
+            src="{{ url_for('static', filename='about1.jpg') }}"
+            class="media-img"
+            alt="Chief Flight Instructor Muhammad Khalid at Goldwings Aviation flight school, Moorabbin Airport"
+            loading="lazy">
+        </div>
+      </div>
+
+      <!-- Text column -->
+      <div class="col-lg-7 order-2 order-lg-1">
+        <div class="eyebrow">Instructor Leadership</div>
+        <h2>Chief Flight Instructor — Muhammad Khalid</h2>
+
+        <p>
+          Our Chief Flight Instructor, <strong>Muhammad Khalid</strong>, began his flying career in 2015, training out of Point Cook.
+          Through his progression from <strong>RPL</strong> to <strong>PPL</strong> and <strong>CPL</strong> while flying across Victoria,
+          he developed a deep appreciation for the value of high-quality instruction, structured learning, and meaningful mentoring.
+        </p>
+
+        <p>
+          Khalid is a senior flight instructor with hundreds of hours of teaching experience and can guide you from your very first lesson
+          through to your <strong>PPL flight test</strong> and beyond. His approach focuses on clarity, confidence-building, and producing disciplined,
+          safety-first pilots prepared for real-world flying.
+        </p>
+
+        <ul class="ticks">
+          <li><span class="tick">✓</span><span>Student-first instruction and mentorship</span></li>
+          <li><span class="tick">✓</span><span>Clear lesson structure and practical standards</span></li>
+          <li><span class="tick">✓</span><span>Support from first flight to flight test readiness</span></li>
+        </ul>
+
+        <div class="cta">
+          <p class="mb-2">
+            <strong>Train with a clear path.</strong> If you’re comparing <em>RPL vs PPL</em> or exploring <em>PPL training</em>, we’ll help you choose the right starting point.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn-gw" href="/contact">Contact Goldwings</a>
+            <a class="btn-gw" href="/pricing">View Pricing</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: BOUTIQUE EXPERIENCE (image removed / replaced with a clean card) -->
+<section class="section soft">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6">
+        <div class="eyebrow">Our Approach</div>
+        <h2>Boutique Flight School Experience</h2>
+        <p>
+          Goldwings Aviation was founded to provide a boutique flight school experience where students receive focused instruction,
+          genuine mentoring, and consistent support throughout their training journey. Unlike high-volume schools, we take a personalised
+          approach — you’re part of our community from day one.
+        </p>
+        <p class="mb-0">
+          From your first briefing to your licence milestone, our emphasis is on safety, confidence, and long-term aviation career.
+        </p>
+
+        <div class="cta">
+          <p class="mb-2"><strong>Ready to start?</strong> Learn more about our training options and choose the path that fits your goals.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn-gw" href="/recreational-pilot-licence-melbourne">RPL Training</a>
+            <a class="btn-gw" href="/private-pilot-licence-melbourne">PPL Training</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="gw-card p-4">
+          <div class="eyebrow">What you can expect</div>
+          <h3 style="font-weight:900; color: var(--gw-navy); margin-bottom: 10px;">A student-first training environment</h3>
+          <p class="muted" style="margin-bottom: 0;">
+            Boutique instruction means clear briefings, consistent mentoring, and training that respects your time — with steady progress toward your licence goals.
+          </p>
+
+          <ul class="ticks" style="margin-top: 14px;">
+            <li><span class="tick">✓</span><span>Personalised mentoring from day one</span></li>
+            <li><span class="tick">✓</span><span>Professional, structured lesson flow</span></li>
+            <li><span class="tick">✓</span><span>Flexible scheduling that fits real life</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  
+
+  <!-- SECTION: WHY MOORABBIN -->
+  <section class="section soft">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <img src="{{ url_for('static', filename='about2.jpeg') }}"
-               class="img-fluid rounded shadow"
-               alt="Cessna 172 training aircraft"
-               loading="lazy"
-               style="object-fit: cover; width: 100%; height: 350px; margin-top: 30px;">
-        </div>
-        <div class="col-md-6">
-          <h2 class="h4 mb-3">Flight Training We Offer</h2>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <div class="eyebrow">Location Advantage</div>
+          <h2>Why Train at Moorabbin Airport</h2>
+
           <p>
-            We currently offer <strong>RPL</strong> and <strong>PPL</strong> training in our own <strong>Cessna 172</strong>, with flexible lesson times to fit around your school, work, or family commitments.
+            Moorabbin Airport is home to one of the largest aviation education precincts in the world, making it an outstanding environment
+            for <strong>flight training</strong>. With multiple operational runways, 24-hour access, and air traffic control services, students
+            gain experience in a dynamic, real-world general aviation setting.
           </p>
-          <p class="mt-3">
-            If you’ve ever dreamed of flying, <a href="/contact"><strong>Contact us</strong></a> today to learn more or book a school tour.
+
+          <p>
+            Located around 20km from Melbourne’s CBD, Moorabbin exposes students to controlled operations and practical decision-making —
+            a foundation that builds confident, adaptable pilots.
+          </p>
+
+          <p class="mb-0">
+            <em>“If you can fly here, you can fly anywhere.”</em>
           </p>
         </div>
+
+        <div class="col-lg-6">
+          <div class="gw-card">
+            <div class="p-4">
+              <div class="eyebrow">Goldwings at Moorabbin</div>
+              <h2 style="margin-bottom:10px;">Efficient, Student-Friendly Setup</h2>
+              <p class="mb-0">
+                We’re conveniently located near the Moorabbin Airport control tower, enabling quick access to runways and airside operations.
+                Students benefit from efficient ground briefings, streamlined pre-flight routines, and direct access to our training aircraft.
+              </p>
+
+              <ul class="ticks">
+                <li><span class="tick">✓</span><span>Quick runway access and practical exposure</span></li>
+                <li><span class="tick">✓</span><span>Dedicated learning environment</span></li>
+                <li><span class="tick">✓</span><span>Training designed to respect your time</span></li>
+              </ul>
+
+              <div class="cta">
+                <p class="mb-2"><strong>Want a walkthrough?</strong> Book a tour and see how your training will run from briefing to takeoff.</p>
+                <a class="btn-gw" href="/contact">Book a School Tour</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+<!-- =========================
+     ABOUT PAGE – FAQ SECTION
+     (Styled like your RPL page accordion)
+     ========================= -->
 
-  <!-- 🌏 Section 4: Moorabbin Airport Info -->
-  <section class="py-5" style="background-color: #05094d; color: white;">
+<!-- FAQ SECTION -->
+<section class="py-5" style="background: linear-gradient(180deg, #05094d 0%, #0b0f3b 100%);">
+  <div class="container d-flex justify-content-center">
+    <div class="col-lg-10 col-xl-8">
+      <div class="p-5 rounded-4 shadow-lg text-white faq-card">
+
+        <h2 class="fw-bold text-center mb-4" style="color: rgb(229, 189, 44);">
+          Goldwings Aviation — Frequently Asked Questions
+        </h2>
+
+        <!-- Q1 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Where is Goldwings Aviation located?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Goldwings Aviation is located at <strong>Moorabbin Airport</strong> (VIC 3194), around 20km from Melbourne CBD. We’re positioned for quick access to the airfield so students can move efficiently from briefing to takeoff.
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            What flight training do you offer at Moorabbin Airport?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We provide <strong>Recreational Pilot Licence (RPL)</strong> and <strong>Private Pilot Licence (PPL)</strong> training at Moorabbin Airport. These licences build core airmanship and decision-making skills and form the foundation for pilots who plan to progress toward <strong>Commercial Pilot Licence (CPL) pathways</strong>.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Is Goldwings Aviation suitable for complete beginners?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Our training is beginner-friendly and structured, with clear briefings, step-by-step skill building, and instructor support from your first lesson onward.
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Why do many students choose Moorabbin for flight training?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Moorabbin Airport is one of Australia’s busiest training environments, offering real-world aerodrome operations, multiple runways, and air traffic control services. It’s an excellent place to build strong habits and confidence early.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            What aircraft do you use for training?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We currently conduct training in our <strong>Cessna 172</strong>, a widely used aircraft for developing strong fundamentals in handling, circuits, navigation, and procedures.
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Do you offer flexible lesson scheduling?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. We offer flexible lesson times to fit around school, work, and family commitments. A consistent schedule (even 1–3 lessons per week) usually leads to better skill retention and smoother progression.
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Can I tour the school or speak with an instructor before starting?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Absolutely. You can <a href="/contact"><strong>contact us</strong></a> to book a school tour, ask questions about RPL/PPL pathways, and discuss a training plan that matches your goals.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQPage Schema (About page) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is Goldwings Aviation located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Goldwings Aviation is located at Moorabbin Airport (VIC 3194), around 20km from Melbourne CBD, with efficient access to the airfield for training."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What flight training do you offer at Moorabbin Airport?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Goldwings Aviation provides Recreational Pilot Licence (RPL) and Private Pilot Licence (PPL) training at Moorabbin Airport. These licences build core skills and form the foundation for pilots progressing toward Commercial Pilot Licence (CPL) pathways."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Goldwings Aviation suitable for complete beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Training is beginner-friendly and structured, with clear briefings, step-by-step learning, and instructor support from the first lesson onward."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do many students choose Moorabbin for flight training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Moorabbin Airport is a major training environment with real-world aerodrome operations, multiple runways, and air traffic control services, making it ideal for building confidence and strong habits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What aircraft do you use for training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Training is conducted in a Cessna 172, a widely used aircraft for building strong fundamentals in handling, circuits, navigation, and procedures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer flexible lesson scheduling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Goldwings Aviation offers flexible lesson times to fit around school, work, and family commitments. A consistent schedule typically improves retention and progression."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I tour the school or speak with an instructor before starting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can contact Goldwings Aviation to book a school tour, ask questions about RPL/PPL pathways, and discuss a training plan aligned with your goals."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- CSS (matches your RPL page accordion style) -->
+<style>
+  .faq-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(229, 189, 44, 0.25);
+    backdrop-filter: blur(6px);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .faq-question:hover {
+    color: rgb(229, 189, 44);
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(229, 189, 44);
+    transition: transform 0.2s ease;
+    margin-left: 14px;
+    flex-shrink: 0;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 1rem;
+    color: #e6e6e6;
+    padding-right: 10px;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 320px;
+    padding-bottom: 16px;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile polish */
+  @media (max-width: 576px) {
+    .faq-card {
+      padding: 2.5rem 1.5rem !important;
+    }
+    .faq-question {
+      font-size: 1.02rem;
+    }
+  }
+</style>
+
+<!-- JS (accordion behavior) -->
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+      const icon = button.querySelector('.faq-icon');
+
+      faqItem.classList.toggle('active');
+      icon.textContent = faqItem.classList.contains('active') ? '−' : '+';
+    });
+  });
+</script>
+
+  <!-- CONTACT DETAILS -->
+  <section class="section">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="h4 mb-3">Why Train at Moorabbin Airport with Goldwings Aviation</h2>
-          <p>
-            Moorabbin Airport is home to one of the largest aviation education precincts in the world. With five operational runways,
-            24-hour access, and air traffic control services, it offers students a real-world flying experience to fly in both
-            fixed-wing aircraft or rotary aircraft.
-          </p>
-          <p>
-            Located just 20km from Melbourne CBD, Moorabbin provides the perfect place to learn to fly.
-            <em>"If you can fly here, you can fly anywhere."</em>
-          </p>
-          <p>
-            Goldwings Aviation is conveniently located right next to the Moorabbin Airport control tower, providing quick access to runways and airside operations. Students benefit from our dedicated learning environment, added services like a
-            courtesy collection service from the pilot shop and direct access to our training aircraft parked just steps away from the classroom.
-          </p>
-          <p>
-            We understand your time is valuable, and Goldwings Aviation facilities ensure a smooth, efficient training experience
-            from ground briefings to takeoff.
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-7">
+          <div class="eyebrow">Contact</div>
+          <h2>Goldwings Aviation Contact Details</h2>
+          <p class="mb-0">
+            If you’re looking for a flight school at Moorabbin Airport for RPL, PPL and beyond. Contact our team — we are here to help you plan your next step.
           </p>
         </div>
+
+        <div class="col-lg-5">
+          <div class="contact-box">
+            <h3>Get in Touch</h3>
+            <p class="contact-line">
+              <span>Address</span>
+              1st Floor, 35 First Ave, Moorabbin Airport VIC 3194
+            </p>
+            <p class="contact-line">
+              <span>Phone</span>
+              <a href="tel:+61400462610">+61 400 462 610</a>
+            </p>
+            <p class="contact-line mb-0">
+              <span>Email</span>
+              <a href="mailto:info@goldwingsaviation.com.au">info@goldwingsaviation.com.au</a>
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
 </section>
-
-<!-- 🎨 Custom Styles -->
-<style>
-  body {
-    color: #05094d;
-    background-color: #ffffff;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: #e5bd2c !important;
-    font-weight: 700 !important;
-  }
-
-  a {
-    color: #05094d;
-    text-decoration: underline;
-  }
-
-  a:hover {
-    color: #e5bd2c;
-    text-decoration: none;
-  }
-
-  @media (max-width: 768px) {
-    .row img {
-      margin-bottom: 20px;
-    }
-  }
-</style>
 {% endblock %}
